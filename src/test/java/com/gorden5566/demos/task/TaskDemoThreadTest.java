@@ -1,4 +1,4 @@
-package com.gorden5566.thread.task;
+package com.gorden5566.demos.task;
 
 import org.junit.Test;
 
@@ -9,13 +9,14 @@ public class TaskDemoThreadTest {
 
     @Test
     public void test() {
-        // 创建两个线程
-        TaskDemoThread thread1 = new TaskDemoThread(100L);
-        TaskDemoThread thread2 = new TaskDemoThread(100L);
+        long num = 100L;
+        int jobNum = 10;
 
-        // 执行线程
-        thread1.start();
-        thread2.start();
+        // 创建10个任务线程并执行
+        for (int i = 0; i < jobNum; i++) {
+            TaskThreadDemo thread = new TaskThreadDemo(num);
+            thread.start();
+        }
 
         // 主线程等待1s后再结束
         try {

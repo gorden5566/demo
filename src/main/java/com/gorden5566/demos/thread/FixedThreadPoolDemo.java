@@ -1,6 +1,6 @@
-package com.gorden5566.thread.demo;
+package com.gorden5566.demos.thread;
 
-import com.gorden5566.thread.task.TaskDemoThread;
+import com.gorden5566.demos.task.TaskThreadDemo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -14,30 +14,31 @@ import java.util.concurrent.Executors;
 public class FixedThreadPoolDemo {
     private static final Log logger = LogFactory.getLog(FixedThreadPoolDemo.class);
     private long num;
-    // 线程池大小
-    private int maxThreadNum;
+    // 任务数量
+    private int jobNum;
 
-    public FixedThreadPoolDemo(int maxThreadNum, long num) {
-        this.maxThreadNum = maxThreadNum;
+    public FixedThreadPoolDemo(int jobNum, long num) {
+        this.jobNum = jobNum;
         this.num = num;
     }
 
     public void doTask() {
         try {
-            // 创建固定大小线程池
-            ExecutorService executorService = Executors.newFixedThreadPool(maxThreadNum);
+            // 创建大小为2的固定线程池
+            ExecutorService executor = Executors.newFixedThreadPool(2);
 
             // 创建线程并放入线程池执行
-            for (int i = 0; i < maxThreadNum; i++) {
-                executorService.execute(new TaskDemoThread(num));
+            for (int i = 0; i < jobNum; i++) {
+                TaskThreadDemo thread = new TaskThreadDemo(num);
+                executor.execute(thread);
             }
 
             // 禁止在exe中添加新的任务
-            executorService.shutdown();
+            executor.shutdown();
 
             // 等待线程池任务执行完毕
             while (true) {
-                if (executorService.isTerminated()) {
+                if (executor.isTerminated()) {
                     logger.info("线程池任务已执行完");
                     break;
                 }

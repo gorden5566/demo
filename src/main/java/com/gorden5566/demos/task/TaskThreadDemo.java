@@ -1,4 +1,4 @@
-package com.gorden5566.thread.task;
+package com.gorden5566.demos.task;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
@@ -7,10 +7,10 @@ import org.apache.commons.logging.Log;
  * 打印[0, num)范围内的数字
  * Created by gorden5566 on 2016/8/14.
  */
-public class TaskDemoThread extends Thread {
-    private static final Log logger = LogFactory.getLog(TaskDemoThread.class);
+public class TaskThreadDemo extends Thread {
+    private static final Log logger = LogFactory.getLog(TaskThreadDemo.class);
     private Long num;
-    public TaskDemoThread(Long num) {
+    public TaskThreadDemo(Long num) {
         this.num = num;
     }
 
