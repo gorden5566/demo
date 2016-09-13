@@ -7,25 +7,20 @@ import org.apache.commons.logging.LogFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * 固定线程池
- * Created by gorden5566 on 2016/8/14.
- */
-public class FixedThreadPoolDemo {
-    private static final Log logger = LogFactory.getLog(FixedThreadPoolDemo.class);
+public class SingleThreadExecutorDemo {
+    private static final Log logger = LogFactory.getLog(SingleThreadExecutorDemo.class);
     private long num;
     // 任务数量
     private int jobNum;
 
-    public FixedThreadPoolDemo(int jobNum, long num) {
+    public SingleThreadExecutorDemo(int jobNum, long num) {
         this.jobNum = jobNum;
         this.num = num;
     }
 
     public void doTask() {
         try {
-            // 创建大小为2的固定线程池
-            ExecutorService executor = Executors.newFixedThreadPool(2);
+            ExecutorService executor = Executors.newSingleThreadExecutor();
 
             // 创建线程并放入线程池执行
             for (int i = 0; i < jobNum; i++) {

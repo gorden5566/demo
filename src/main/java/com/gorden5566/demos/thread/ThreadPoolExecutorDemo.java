@@ -52,7 +52,7 @@ public class ThreadPoolExecutorDemo {
                 Thread.sleep(1000L);
             }
         } catch (InterruptedException e) {
-            logger.info("exception", e);
+            logger.error(e.getMessage(), e);
         }
     }
 }
