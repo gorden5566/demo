@@ -8,7 +8,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
- * Created by renjianjun on 2016/9/18.
+ * Created by gorden5566 on 2016/9/18.
  */
 public class Utils {
     private static final Log logger = LogFactory.getLog(Utils.class);
