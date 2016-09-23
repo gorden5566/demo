@@ -1,4 +1,4 @@
-package com.gorden5566.demos.task;
+package com.gorden5566.demos.thread.task;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;

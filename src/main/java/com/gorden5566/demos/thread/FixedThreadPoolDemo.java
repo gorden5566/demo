@@ -1,6 +1,6 @@
 package com.gorden5566.demos.thread;
 
-import com.gorden5566.demos.task.TaskThreadDemo;
+import com.gorden5566.demos.thread.task.TaskThreadDemo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
