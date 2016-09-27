@@ -1,14 +1,14 @@
 package com.gorden5566.demos.thread.task;
 
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 打印[0, num)范围内的数字
  * Created by gorden5566 on 2016/8/14.
  */
 public class TaskThreadDemo extends Thread {
-    private static final Log logger = LogFactory.getLog(TaskThreadDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(TaskThreadDemo.class);
     private Long num;
     public TaskThreadDemo(Long num) {
         this.num = num;

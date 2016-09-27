@@ -1,11 +1,11 @@
 package com.gorden5566.demos.pattern.observer.impl;
 
 import com.gorden5566.demos.pattern.observer.Observer;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ConcreteObserver implements Observer {
-    private static final Log logger = LogFactory.getLog(ConcreteObserver.class);
+    private static final Logger logger = LoggerFactory.getLogger(ConcreteObserver.class);
 
     private Long id;
 

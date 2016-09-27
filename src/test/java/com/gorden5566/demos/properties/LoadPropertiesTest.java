@@ -1,13 +1,13 @@
 package com.gorden5566.demos.properties;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
 public class LoadPropertiesTest {
-    private static final Log logger = LogFactory.getLog(LoadPropertiesTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoadPropertiesTest.class);
 
     @Test
     public void test() {

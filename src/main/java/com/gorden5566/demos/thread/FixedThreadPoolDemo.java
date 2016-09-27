@@ -1,8 +1,8 @@
 package com.gorden5566.demos.thread;
 
 import com.gorden5566.demos.thread.task.TaskThreadDemo;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
  * Created by gorden5566 on 2016/8/14.
  */
 public class FixedThreadPoolDemo {
-    private static final Log logger = LogFactory.getLog(FixedThreadPoolDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(FixedThreadPoolDemo.class);
     private long num;
     // 任务数量
     private int jobNum;

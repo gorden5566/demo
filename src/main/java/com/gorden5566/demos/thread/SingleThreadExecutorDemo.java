@@ -1,14 +1,14 @@
 package com.gorden5566.demos.thread;
 
 import com.gorden5566.demos.thread.task.TaskThreadDemo;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class SingleThreadExecutorDemo {
-    private static final Log logger = LogFactory.getLog(SingleThreadExecutorDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(SingleThreadExecutorDemo.class);
     private long num;
     // 任务数量
     private int jobNum;

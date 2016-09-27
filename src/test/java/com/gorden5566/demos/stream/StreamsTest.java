@@ -1,15 +1,15 @@
 package com.gorden5566.demos.stream;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
 public class StreamsTest {
-    private static final Log logger = LogFactory.getLog(StreamsTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(StreamsTest.class);
     @Test
     public void test() {
         Streams streams = new Streams("Streams.txt");
@@ -25,8 +25,8 @@ public class StreamsTest {
 
         try {
             DataInputStream in = streams.getDataInputStream();
-            logger.info(in.readInt());
-            logger.info(in.readBoolean());
+            logger.info(in.readInt() + "");
+            logger.info(in.readBoolean() + "");
             in.close();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,14 +1,14 @@
 package com.gorden5566.demos.properties;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class LoadProperties {
-    private static final Log logger = LogFactory.getLog(LoadProperties.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoadProperties.class);
 
     private String fileName;
 

@@ -1,7 +1,7 @@
 package com.gorden5566.demos.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -11,7 +11,7 @@ import java.net.URLEncoder;
  * Created by gorden5566 on 2016/9/18.
  */
 public class Utils {
-    private static final Log logger = LogFactory.getLog(Utils.class);
+    private static final Logger logger = LoggerFactory.getLogger(Utils.class);
 
     private static final String CHARSET = "UTF-8";
 
