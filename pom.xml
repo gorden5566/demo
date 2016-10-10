@@ -20,6 +20,22 @@
 					<encoding>UTF8</encoding>
 				</configuration>
 			</plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.gorden5566.demos.jetty.JettyServer</mainClass>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
@@ -45,12 +61,19 @@
 			<version>${log4j.version}</version>
 		</dependency>
 
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty-server.version}</version>
+        </dependency>
+
 	</dependencies>
-	
+
 	<properties>
 		<junit.version>4.10</junit.version>
         <slf4j.version>1.7.5</slf4j.version>
 		<log4j.version>1.2.12</log4j.version>
+        <jetty-server.version>8.2.0.v20160908</jetty-server.version>
 	</properties>
 
 </project>
