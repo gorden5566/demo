@@ -30,7 +30,9 @@ public class FixedThreadPoolDemo {
             // 创建线程并放入线程池执行
             for (int i = 0; i < jobNum; i++) {
                 TaskThreadDemo thread = new TaskThreadDemo(num);
+                logger.info("开始添加任务{}", i+1);
                 executor.execute(thread);
+                logger.info("已添加任务{}", i+1);
             }
 
             // 禁止在exe中添加新的任务

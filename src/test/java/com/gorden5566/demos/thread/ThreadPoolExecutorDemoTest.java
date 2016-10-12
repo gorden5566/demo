@@ -9,8 +9,8 @@ public class ThreadPoolExecutorDemoTest {
 
     @Test
     public void test() {
-        long num = 100L;
-        int jobNum = 10;
+        long num = 10L;
+        int jobNum = 2;
 
         // 创建线程并执行
         ThreadPoolExecutorDemo demo = new ThreadPoolExecutorDemo(jobNum, num);
