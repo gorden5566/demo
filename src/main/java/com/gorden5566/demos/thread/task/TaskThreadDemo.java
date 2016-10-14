@@ -22,7 +22,7 @@ public class TaskThreadDemo extends Thread {
 
     private void execute() {
         for (int i = 0; i < num; i++) {
-            logger.info("i = " + i);
+            logger.info("i = {}", i);
         }
     }
 }

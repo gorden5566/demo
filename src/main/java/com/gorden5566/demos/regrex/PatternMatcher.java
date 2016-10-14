@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class PatternMatcher {
     private static final Logger logger = LoggerFactory.getLogger(PatternMatcher.class);
 
+	// 正则表达式
     private String regex;
 
     private Pattern pattern;
@@ -19,6 +20,7 @@ public class PatternMatcher {
 
     public void compile() {
         if (pattern == null) {
+			// 通过静态方法compile获取pattern实例
             pattern = Pattern.compile(regex);
         }
     }
@@ -26,6 +28,7 @@ public class PatternMatcher {
     public void matcher(String str) {
         compile();
 
+		// 通过pattern获取matcher实例
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
             logger.info("matcher.group(): " + matcher.group());

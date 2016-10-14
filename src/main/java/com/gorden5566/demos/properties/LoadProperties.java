@@ -17,12 +17,15 @@ public class LoadProperties {
     }
 
     public Properties load() {
+		// 获取当前类的ClassLoader
         ClassLoader classLoader = LoadProperties.class.getClassLoader();
+		// 通过ClassLoader获取文件输入流
         InputStream inputStream = classLoader.getResourceAsStream(fileName);
 
         Properties props = new Properties();
         if (inputStream != null) {
             try {
+				// 加载输入流
                 props.load(inputStream);
             } catch (IOException e) {
                 logger.info(e.getMessage(), e);
