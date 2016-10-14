@@ -10,4 +10,4 @@ java常用类使用演示
 - Thread and Thread Pool
 - Input Stream and Out Stream
 - Pattern and Matcher
-- other java features etc.
+- ...
