@@ -39,8 +39,8 @@ public class ThreadPoolExecutorDemo {
                 TaskThreadDemo thread = new TaskThreadDemo(num);
                 executor.execute(thread);
             }
-			
-			// 禁止在executor中添加新的任务
+
+            // 禁止在executor中添加新的任务
             executor.shutdown();
 
             // 等待线程池任务执行完毕
