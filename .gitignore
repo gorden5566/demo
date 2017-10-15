@@ -5,3 +5,5 @@
 .idea
 *.txt
 target
+.DS_Store
+.settings/
