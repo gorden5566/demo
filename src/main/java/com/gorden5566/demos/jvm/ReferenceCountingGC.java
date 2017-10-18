@@ -2,6 +2,8 @@ package com.gorden5566.demos.jvm;
 
 /**
  * testGC() 方法执行后，objA 和 objB会不会被 GC 呢？
+ *
+ * VM Args: -XX:+PrintGCDetails
  */
 public class ReferenceCountingGC {
 
@@ -13,6 +15,10 @@ public class ReferenceCountingGC {
      * 这个成员属性的唯一意义就是占内存，以便能在 GC 日志中看清楚是否被回收过
      */
     private byte[] bigSize = new byte[2 * _1MB];
+
+    public static void main(String[] args) {
+        testGC();
+    }
 
     public static void testGC() {
         ReferenceCountingGC objA = new ReferenceCountingGC();
