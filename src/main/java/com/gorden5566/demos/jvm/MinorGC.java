@@ -17,7 +17,17 @@ public class MinorGC {
         allocation4 = new byte[4 * _1MB];   // 出现异常 Minor GC
     }
 
+    /**
+     * VM Args: -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
+     * -XX:PretenureSizeThreshold=3145728
+     */
+    public static void testPretenureSizeThreshold() {
+        byte[] allocation;
+        allocation = new byte[4 * _1MB];
+    }
+
     public static void main(String[] args) {
-        testAllocation();
+//        testAllocation();
+        testPretenureSizeThreshold();
     }
 }
