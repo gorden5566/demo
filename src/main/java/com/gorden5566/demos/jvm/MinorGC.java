@@ -43,6 +43,7 @@ public class MinorGC {
     /**
      * VM Args: -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
      * -XX:MaxTenuringThreshold=15 -XX:+PrintTenuringDistribution
+     * 请在JDK6 Update 24 之前版本运行测试
      */
     public static void testTenuringThreshold2() {
         byte[] allocation1, allocation2, allocation3, allocation4;
@@ -55,10 +56,29 @@ public class MinorGC {
         allocation4 = new byte[4 * _1MB];
     }
 
+    /**
+     * VM Args: -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
+     * -XX:-HandlePromotionFailure
+     */
+    public static void testHandlePromotion() {
+        byte[] allocation1, allocation2, allocation3, allocation4, allocation5, allocation6, allocation7;
+        allocation1 = new byte[2 * _1MB];
+        allocation2 = new byte[2 * _1MB];
+        allocation3 = new byte[2 * _1MB];
+        allocation1 = null;
+        allocation4 = new byte[2 * _1MB];
+        allocation5 = new byte[2 * _1MB];
+        allocation6 = new byte[2 * _1MB];
+        allocation4 = null;
+        allocation5 = null;
+        allocation6 = null;
+        allocation7 = new byte[2 * _1MB];
+    }
+
     public static void main(String[] args) {
 //        testAllocation();
 //        testPretenureSizeThreshold();
 //        testTenuringThreshold();
-        testTenuringThreshold2();
+        testHandlePromotion();
     }
 }
