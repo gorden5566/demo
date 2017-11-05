@@ -1,4 +1,4 @@
-package com.gorden5566.demos.jvm;
+package com.gorden5566.demos.jvm.gc;
 
 /**
  * 此代码演示了两点

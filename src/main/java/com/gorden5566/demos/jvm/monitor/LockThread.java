@@ -1,4 +1,4 @@
-package com.gorden5566.demos.jvm;
+package com.gorden5566.demos.jvm.monitor;
 
 import java.io.BufferedReader;
 import java.io.IOException;

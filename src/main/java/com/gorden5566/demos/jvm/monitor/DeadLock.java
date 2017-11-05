@@ -1,4 +1,4 @@
-package com.gorden5566.demos.jvm;
+package com.gorden5566.demos.jvm.monitor;
 
 /**
  * Created by gorden5566 on 2017/10/31.

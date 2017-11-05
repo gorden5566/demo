@@ -1,4 +1,4 @@
-package com.gorden5566.demos.jvm;
+package com.gorden5566.demos.jvm.gc;
 
 /**
  * testGC() 方法执行后，objA 和 objB会不会被 GC 呢？

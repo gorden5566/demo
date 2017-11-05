@@ -1,4 +1,4 @@
-package com.gorden5566.demos.jvm;
+package com.gorden5566.demos.jvm.oom;
 
 /**
  * VM Args: -Xss2M

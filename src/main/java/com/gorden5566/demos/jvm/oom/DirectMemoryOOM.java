@@ -1,4 +1,4 @@
-package com.gorden5566.demos.jvm;
+package com.gorden5566.demos.jvm.oom;
 
 import sun.misc.Unsafe;
 
