@@ -70,14 +70,34 @@
             <artifactId>cglib</artifactId>
             <version>${cglib.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
     </dependencies>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.3.9.RELEASE</spring.version>
+
         <junit.version>4.10</junit.version>
         <slf4j.version>1.7.5</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
-        <cglib.version>3.2.5</cglib.version>
+        <cglib.version>3.1</cglib.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
         <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
     </properties>
