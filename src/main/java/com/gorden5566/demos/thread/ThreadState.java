@@ -15,6 +15,7 @@ public class ThreadState {
         new Thread(new Blocked(), "BlockedThread-2").start();
     }
 
+    // 该线程不断地进行睡眠
     static class TimeWaiting implements Runnable {
         @Override
         public void run() {
@@ -24,6 +25,7 @@ public class ThreadState {
         }
     }
 
+    // 该线程在 Waiting.class 实例上等待
     static class Waiting implements Runnable {
         @Override
         public void run() {
@@ -39,6 +41,7 @@ public class ThreadState {
         }
     }
 
+    // 该线程在 Blocked.class 实例上加锁后，不会释放该锁
     static class Blocked implements Runnable {
         @Override
         public void run() {
