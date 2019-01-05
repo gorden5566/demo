@@ -101,6 +101,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     @Override
     public void removeWorker(int num) {
         synchronized (jobs) {
+            // 允许全部移除
             if (num > this.workerNum) {
                 throw new IllegalArgumentException("beyond workNum");
             }
@@ -108,9 +109,14 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             // 按照给定的数量停止 Worker
             int count = 0;
             while (count < num) {
-                Worker worker = workers.get(count);
+                System.out.println("workers num: " + workers.size());
+                // 每次移除第一个
+                Worker worker = workers.get(0);
                 if (workers.remove(worker)) {
                     worker.shutdown();
+
+                    // 通知线程关闭
+                    jobs.notify();
                     count++;
                 }
             }
@@ -138,7 +144,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             while (running) {
                 Job job = null;
                 synchronized (jobs) {
-                    while (jobs.isEmpty()) {
+                    while (running && jobs.isEmpty()) {
                         try {
                             jobs.wait();
                         } catch (InterruptedException e) {
@@ -149,7 +155,9 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
                     }
 
                     // 取出一个 Job
-                    job = jobs.removeFirst();
+                    if (!jobs.isEmpty()) {
+                        job = jobs.removeFirst();
+                    }
                 }
 
                 // 执行 Job
