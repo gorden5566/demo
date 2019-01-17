@@ -1,4 +1,4 @@
-package com.gorden5566.demos.reflect;
+package com.gorden5566.demos.pattern.reflect;
 
 public class Interceptor {
     public void before() {

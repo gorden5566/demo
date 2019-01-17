@@ -1,4 +1,4 @@
-package com.gorden5566.demos.reflect;
+package com.gorden5566.demos.pattern.reflect;
 
 import java.lang.reflect.Proxy;
 
