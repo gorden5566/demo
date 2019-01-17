@@ -17,6 +17,17 @@ public class TestSpring {
         // 数据库查询
         testQuery();
 
+        // FactoryBean测试
+        testFactoryBean();
+    }
+
+    private static void testFactoryBean() {
+        // 打印SpringBean的实例
+        System.out.println("SpringBean: " + context.getBean("springFactoryBean"));
+
+        // 打印SpringFactoryBean的实例
+        System.out.println("SpringFactoryBean: " + context.getBean("&springFactoryBean"));
+
     }
 
     /**
