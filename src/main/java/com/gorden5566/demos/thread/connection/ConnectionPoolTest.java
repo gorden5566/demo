@@ -9,13 +9,19 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2019/1/5
  */
 public class ConnectionPoolTest {
-    // 线程池大小为 10
+    /**
+     * 线程池大小为 10
+     */
     static ConnectionPool pool = new ConnectionPool(10);
 
-    // 保证所有 ConnectionRunner 能够同时开始
+    /**
+     * 保证所有 ConnectionRunner 能够同时开始
+     */
     static CountDownLatch start = new CountDownLatch(1);
 
-    // main 线程将会等待所有 ConnectionRunner 结束后才能继续执行
+    /**
+     * main 线程将会等待所有 ConnectionRunner 结束后才能继续执行
+     */
     static CountDownLatch end;
 
     public static void main(String[] args) throws InterruptedException {
