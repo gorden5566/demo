@@ -1,4 +1,4 @@
-package com.gorden5566.base;
+package com.gorden5566.demos.hash;
 
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;

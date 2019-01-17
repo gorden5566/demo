@@ -1,4 +1,4 @@
-package com.gorden5566.demos.util;
+package com.gorden5566.demos.hash;
 
 import java.util.*;
 

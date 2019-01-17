@@ -1,4 +1,4 @@
-package com.gorden5566;
+package com.gorden5566.ml;
 
 import java.util.ArrayList;
 import java.util.List;

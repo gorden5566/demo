@@ -1,6 +1,6 @@
-package com.gorden5566.demos.util;
+package com.gorden5566.demos.hash;
 
-import java.util.Map;
+import com.gorden5566.demos.hash.MyHashMap;
 
 /**
  * @author gorden5566
