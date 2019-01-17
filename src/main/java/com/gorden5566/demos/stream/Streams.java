@@ -8,13 +8,19 @@ import java.io.*;
 public class Streams {
     private static final Logger logger = LoggerFactory.getLogger(Streams.class);
 
+    private static final String CLASSPATH;
+    static {
+        CLASSPATH = Streams.class.getClassLoader().getResource("").getPath();
+    }
+
     private String fileName;
 
     public Streams(String fileName) {
-        this.fileName = fileName;
+        this.fileName = CLASSPATH + fileName;
     }
 
     public DataOutputStream getDataOutPutStream() throws IOException {
+        logger.info("fileName: " + fileName);
         // 节点流FileOutputStream
         FileOutputStream fileOutputStream = new FileOutputStream(fileName);
         // 过滤流BufferedOutputStream
@@ -26,6 +32,7 @@ public class Streams {
     }
 
     public DataInputStream getDataInputStream() throws IOException {
+        logger.info("fileName: " + fileName);
         // 节点流FileInputStream
         FileInputStream fileInputStream = new FileInputStream(fileName);
         // 装饰流BufferedInputStream
