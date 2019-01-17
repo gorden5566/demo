@@ -19,6 +19,12 @@ public class TestSpring {
 
         // FactoryBean测试
         testFactoryBean();
+
+        testBeanFactoryPostProcessor();
+    }
+
+    private static void testBeanFactoryPostProcessor() {
+        System.out.println(context.getBean("before"));
     }
 
     private static void testFactoryBean() {
