@@ -1,8 +1,8 @@
 package com.gorden5566.framework.spring;
 
-import com.gorden5566.framework.mybatis.dao.UserDao;
 import com.gorden5566.framework.spring.config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 /**
  * @author gorden5566
@@ -10,37 +10,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class TestSpring {
     private static AnnotationConfigApplicationContext context;
-    public static void main(String[] args) {
+
+    static {
         context = new AnnotationConfigApplicationContext(AppConfig.class);
+    }
+
+    public static void main(String[] args) {
+        // Spring和Mybatis整合：在AppConfig中配置DataSource和SqlSessionFactory
         System.out.println(context.getBean(AppConfig.class));
 
-        // 数据库查询
-        testQuery();
-
-        // FactoryBean测试
-        testFactoryBean();
-
-        testBeanFactoryPostProcessor();
     }
 
-    private static void testBeanFactoryPostProcessor() {
-        System.out.println(context.getBean("before"));
-    }
-
-    private static void testFactoryBean() {
-        // 打印SpringBean的实例
-        System.out.println("SpringBean: " + context.getBean("springFactoryBean"));
-
-        // 打印SpringFactoryBean的实例
-        System.out.println("SpringFactoryBean: " + context.getBean("&springFactoryBean"));
-
-    }
-
-    /**
-     * 查询两次，打印两次sql语句+两次查询结果，说明mybatis一级缓存(session级别)已经关闭，每次查询创建新的session
-     */
-    private static void testQuery() {
-        System.out.println(context.getBean(UserDao.class).query());
-        System.out.println(context.getBean(UserDao.class).query());
+    public static AbstractApplicationContext getContext() {
+        return context;
     }
 }
