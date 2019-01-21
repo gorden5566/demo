@@ -18,7 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * @author renjianjun02
+ * @author gorden5566
  * @date 2018/10/21
  */
 public class FXNewsProviderTest {
