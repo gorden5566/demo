@@ -1,4 +1,4 @@
-package com.gorden5566.demos.spring;
+package com.gorden5566.framework.spring.discovery;
 
 /**
  * @author renjianjun02

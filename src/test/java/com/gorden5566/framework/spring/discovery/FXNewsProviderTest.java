@@ -1,5 +1,8 @@
-package com.gorden5566.demos.spring;
+package com.gorden5566.framework.spring.discovery;
 
+import com.gorden5566.framework.spring.discovery.DowJonesNewsListener;
+import com.gorden5566.framework.spring.discovery.DowJonesNewsPersister;
+import com.gorden5566.framework.spring.discovery.FXNewsProvider;
 import org.junit.Test;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValue;
