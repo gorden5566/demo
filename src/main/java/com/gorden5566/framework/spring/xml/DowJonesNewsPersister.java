@@ -1,4 +1,4 @@
-package com.gorden5566.framework.spring.discovery;
+package com.gorden5566.framework.spring.xml;
 
 /**
  * @author gorden5566

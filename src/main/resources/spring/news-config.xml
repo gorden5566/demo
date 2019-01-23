@@ -3,10 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="djNewsListener" class="com.gorden5566.framework.spring.discovery.DowJonesNewsListener"/>
-    <bean id="djNewsPersister" class="com.gorden5566.framework.spring.discovery.DowJonesNewsPersister"/>
+    <bean id="djNewsListener" class="com.gorden5566.framework.spring.xml.DowJonesNewsListener"/>
+    <bean id="djNewsPersister" class="com.gorden5566.framework.spring.xml.DowJonesNewsPersister"/>
 
-    <bean id="djNewsProvider" class="com.gorden5566.framework.spring.discovery.FXNewsProvider">
+    <bean id="djNewsProvider" class="com.gorden5566.framework.spring.xml.FXNewsProvider">
         <constructor-arg index="0" ref="djNewsListener"/>
         <constructor-arg index="1" ref="djNewsPersister"/>
     </bean>

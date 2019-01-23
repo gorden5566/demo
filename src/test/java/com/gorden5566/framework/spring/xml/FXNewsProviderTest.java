@@ -1,8 +1,5 @@
-package com.gorden5566.framework.spring.discovery;
+package com.gorden5566.framework.spring.xml;
 
-import com.gorden5566.framework.spring.discovery.DowJonesNewsListener;
-import com.gorden5566.framework.spring.discovery.DowJonesNewsPersister;
-import com.gorden5566.framework.spring.discovery.FXNewsProvider;
 import org.junit.Test;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValue;
@@ -23,6 +20,9 @@ import org.springframework.core.io.ClassPathResource;
  */
 public class FXNewsProviderTest {
 
+    /**
+     * BeanFactory使用demo
+     */
     @Test
     public void test1() {
         BeanFactory container = new XmlBeanFactory(new ClassPathResource("spring/news-config.xml"));
@@ -30,6 +30,9 @@ public class FXNewsProviderTest {
         newsProvider.getAndPersistNews();
     }
 
+    /**
+     * ApplicationContext使用demo
+     */
     @Test
     public void test2() {
         ApplicationContext container = new ClassPathXmlApplicationContext("spring/news-config.xml");
@@ -37,6 +40,9 @@ public class FXNewsProviderTest {
         newsProvider.getAndPersistNews();
     }
 
+    /**
+     * DefaultListableBeanFactory使用demo, 通过代码注入
+     */
     @Test
     public void test3() {
         DefaultListableBeanFactory beanRegistry = new DefaultListableBeanFactory();
@@ -69,6 +75,9 @@ public class FXNewsProviderTest {
         return (BeanFactory) registry;
     }
 
+    /**
+     * DefaultListableBeanFactory使用demo, 通过xml注入
+     */
     @Test
     public void test4() {
         DefaultListableBeanFactory beanRegistry = new DefaultListableBeanFactory();

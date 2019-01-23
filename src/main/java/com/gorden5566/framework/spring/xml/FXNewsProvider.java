@@ -1,4 +1,4 @@
-package com.gorden5566.framework.spring.discovery;
+package com.gorden5566.framework.spring.xml;
 
 /**
  * @author gorden5566
@@ -16,6 +16,9 @@ public class FXNewsProvider {
         this.newPersistener = newPersistener;
     }
 
+    /**
+     * 获取所有新闻数据并保存
+     */
     public void getAndPersistNews() {
         String[] newsIds = newsListener.getAvailableNewsIds();
 
