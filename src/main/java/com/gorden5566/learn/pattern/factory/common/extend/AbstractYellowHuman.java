@@ -1,6 +1,6 @@
-package com.gorden5566.learn.pattern.factory.human;
+package com.gorden5566.learn.pattern.factory.common.extend;
 
-public class YellowHuman implements Human {
+public abstract class AbstractYellowHuman implements Human {
     @Override
     public void getColor() {
         System.out.println("黄种人皮肤颜色为黄色！");

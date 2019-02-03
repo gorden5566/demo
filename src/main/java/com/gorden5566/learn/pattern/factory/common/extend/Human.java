@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.factory.human;
+package com.gorden5566.learn.pattern.factory.common.extend;
 
 public interface Human {
     /**
@@ -10,4 +10,9 @@ public interface Human {
      * 人类会说话
      */
     void talk();
+
+    /**
+     * 每个人都有性别
+     */
+    void getSex();
 }
