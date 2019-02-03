@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.builder.demo.car;
+package com.gorden5566.learn.pattern.builder.simple.car;
 
 public class BMWModel extends CarModel {
     protected void alarm() {

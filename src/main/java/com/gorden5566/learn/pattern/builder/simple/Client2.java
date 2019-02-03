@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.builder.demo;
+package com.gorden5566.learn.pattern.builder.simple;
 
 public class Client2 {
     public static void main(String[] args) {

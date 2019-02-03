@@ -1,7 +1,7 @@
-package com.gorden5566.learn.pattern.builder.demo.builder;
+package com.gorden5566.learn.pattern.builder.simple.builder;
 
-import com.gorden5566.learn.pattern.builder.demo.car.BenzModel;
-import com.gorden5566.learn.pattern.builder.demo.car.CarModel;
+import com.gorden5566.learn.pattern.builder.simple.car.BenzModel;
+import com.gorden5566.learn.pattern.builder.simple.car.CarModel;
 
 import java.util.ArrayList;
 

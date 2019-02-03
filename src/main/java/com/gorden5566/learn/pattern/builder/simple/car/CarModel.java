@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.builder.demo.car;
+package com.gorden5566.learn.pattern.builder.simple.car;
 
 import java.util.ArrayList;
 
