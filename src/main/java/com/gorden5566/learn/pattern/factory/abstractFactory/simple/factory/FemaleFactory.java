@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.factory.abstractFactory.factory;
+package com.gorden5566.learn.pattern.factory.abstractFactory.simple.factory;
 
 import com.gorden5566.learn.pattern.factory.common.extend.Human;
 import com.gorden5566.learn.pattern.factory.common.extend.impl.FemaleBlackHuman;

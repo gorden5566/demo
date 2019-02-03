@@ -1,8 +1,8 @@
-package com.gorden5566.learn.pattern.factory.abstractFactory;
+package com.gorden5566.learn.pattern.factory.abstractFactory.simple;
 
-import com.gorden5566.learn.pattern.factory.abstractFactory.factory.FemaleFactory;
-import com.gorden5566.learn.pattern.factory.abstractFactory.factory.HumanFactory;
-import com.gorden5566.learn.pattern.factory.abstractFactory.factory.MaleFactory;
+import com.gorden5566.learn.pattern.factory.abstractFactory.simple.factory.FemaleFactory;
+import com.gorden5566.learn.pattern.factory.abstractFactory.simple.factory.HumanFactory;
+import com.gorden5566.learn.pattern.factory.abstractFactory.simple.factory.MaleFactory;
 import com.gorden5566.learn.pattern.factory.common.extend.Human;
 
 public class NvWa {
