@@ -1,8 +1,8 @@
 package com.gorden5566.learn.pattern.factory.simpleFactory;
 
-import com.gorden5566.learn.pattern.factory.human.BlackHuman;
-import com.gorden5566.learn.pattern.factory.human.Human;
-import com.gorden5566.learn.pattern.factory.human.WhiteHuman;
+import com.gorden5566.learn.pattern.factory.common.base.BlackHuman;
+import com.gorden5566.learn.pattern.factory.common.base.Human;
+import com.gorden5566.learn.pattern.factory.common.base.WhiteHuman;
 import com.gorden5566.learn.pattern.factory.simpleFactory.factory.HumanFactory;
 
 public class NuWa {

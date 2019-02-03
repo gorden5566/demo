@@ -3,7 +3,7 @@ package com.gorden5566.learn.pattern.factory.factoryMethod.multiple;
 import com.gorden5566.learn.pattern.factory.factoryMethod.multiple.factory.BlackHumanFactory;
 import com.gorden5566.learn.pattern.factory.factoryMethod.multiple.factory.WhiteHumanFactory;
 import com.gorden5566.learn.pattern.factory.factoryMethod.multiple.factory.YellowHumanFactory;
-import com.gorden5566.learn.pattern.factory.human.Human;
+import com.gorden5566.learn.pattern.factory.common.base.Human;
 
 public class NvWa {
     public static void main(String[] args) {

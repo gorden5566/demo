@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.factory.human;
+package com.gorden5566.learn.pattern.factory.common.base;
 
 public class BlackHuman implements Human {
     @Override

@@ -2,9 +2,9 @@ package com.gorden5566.learn.pattern.factory.factoryMethod.simple;
 
 import com.gorden5566.learn.pattern.factory.factoryMethod.simple.factory.AbstractHumanFactory;
 import com.gorden5566.learn.pattern.factory.factoryMethod.simple.factory.HumanFactory;
-import com.gorden5566.learn.pattern.factory.human.BlackHuman;
-import com.gorden5566.learn.pattern.factory.human.Human;
-import com.gorden5566.learn.pattern.factory.human.WhiteHuman;
+import com.gorden5566.learn.pattern.factory.common.base.BlackHuman;
+import com.gorden5566.learn.pattern.factory.common.base.Human;
+import com.gorden5566.learn.pattern.factory.common.base.WhiteHuman;
 
 public class NvWa {
     public static void main(String[] args) {

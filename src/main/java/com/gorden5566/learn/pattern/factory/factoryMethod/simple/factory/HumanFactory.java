@@ -1,6 +1,6 @@
 package com.gorden5566.learn.pattern.factory.factoryMethod.simple.factory;
 
-import com.gorden5566.learn.pattern.factory.human.Human;
+import com.gorden5566.learn.pattern.factory.common.base.Human;
 
 /**
  * 通过工厂的实例进行调用
