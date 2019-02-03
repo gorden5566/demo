@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.template.simple;
+package com.gorden5566.learn.pattern.template.extend;
 
 public class HummerH2Model extends HummerModel {
     @Override
@@ -19,5 +19,10 @@ public class HummerH2Model extends HummerModel {
     @Override
     public void engineBoom() {
         System.out.println("悍马H2引擎声音...");
+    }
+
+    @Override
+    protected boolean isAlarm() {
+        return false;
     }
 }
