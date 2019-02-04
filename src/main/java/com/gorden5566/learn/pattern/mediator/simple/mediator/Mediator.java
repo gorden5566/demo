@@ -1,5 +1,8 @@
 package com.gorden5566.learn.pattern.mediator.simple.mediator;
 
+/**
+ * 中介者，用于处理业务之间的交互
+ */
 public class Mediator extends AbstractMediator {
     @Override
     public void execute(String str, Object... objects) {
