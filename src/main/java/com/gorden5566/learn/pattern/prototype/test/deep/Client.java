@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.prototype.test.shallow;
+package com.gorden5566.learn.pattern.prototype.test.deep;
 
 public class Client {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class Client {
         Thing cloneThing = thing.clone();
         cloneThing.setValue("李四");
 
-        // 原对象已被修改
+        // 原对象引用属性不变
         System.out.println(thing.getArrayList());
     }
 }
