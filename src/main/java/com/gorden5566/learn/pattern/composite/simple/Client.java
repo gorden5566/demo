@@ -1,7 +1,7 @@
 package com.gorden5566.learn.pattern.composite.simple;
 
-import com.gorden5566.learn.pattern.composite.simple.tree.ICorp;
 import com.gorden5566.learn.pattern.composite.simple.tree.impl.Branch;
+import com.gorden5566.learn.pattern.composite.simple.tree.impl.Corp;
 import com.gorden5566.learn.pattern.composite.simple.tree.impl.Leaf;
 
 import java.util.List;
@@ -76,17 +76,16 @@ public class Client {
      * @param root
      * @return
      */
-    public static String getTreeInfo(Branch root) {
-        List<ICorp> subordinateList = root.getSubordinate();
+    public static String getTreeInfo(Branch root){
+        List<Corp> subordinateList = root.getSubordinate();
         String info = "";
-        for (ICorp s : subordinateList) {
-            if (s instanceof Leaf) { //是员工就直接获得信息
-                info = info + s.getInfo() + "\n";
-            } else { //是个小头目
-                info = info + s.getInfo() + "\n" + getTreeInfo((Branch) s);
+        for(Corp s :subordinateList){
+            if(s instanceof Leaf){ //是员工就直接获得信息
+                info = info + s.getInfo()+"\n";
+            }else{ //是个小头目
+                info = info+s.getInfo()+"\n"+ getTreeInfo((Branch)s);
             }
         }
         return info;
-
     }
 }
