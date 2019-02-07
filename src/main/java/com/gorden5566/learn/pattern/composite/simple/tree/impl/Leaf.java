@@ -5,11 +5,11 @@ import com.gorden5566.learn.pattern.composite.simple.tree.ILeaf;
 public class Leaf implements ILeaf {
 
     //叶子叫什么名字
-    private String name = "";
+    private String name;
     //叶子的职位
-    private String position = "";
+    private String position;
     //叶子的薪水
-    private int salary = 0;
+    private int salary;
 
     public Leaf(String name, String position, int salary) {
         this.name = name;

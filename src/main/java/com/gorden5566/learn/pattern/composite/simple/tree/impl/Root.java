@@ -11,11 +11,11 @@ public class Root implements IRoot {
     //保存根节点下的树枝节点和树叶节点， Subordinate的意思是下级
     private List subordinateList = new ArrayList();
     //根节点的名称
-    private String name = "";
+    private String name;
     //根节点的职位
-    private String position = "";
+    private String position;
     //根节点的薪水
-    private int salary = 0;
+    private int salary;
 
     public Root(String name, String position, int salary) {
         this.name = name;

@@ -2,32 +2,19 @@ package com.gorden5566.learn.pattern.composite.simple.tree;
 
 import java.util.List;
 
-public interface IBranch {
+public interface IBranch extends ICorp {
+
     /**
-     * 获得信息
+     * 能够增加小兵（ 树叶节点） 或者是经理（ 树枝节点）
+     *
+     * @param corp
+     */
+    void addSubordinate(ICorp corp);
+
+    /**
+     * 我还要能够获得下属的信息
      *
      * @return
      */
-    String getInfo();
-
-    /**
-     * 增加数据节点， 例如研发部下设的研发一组
-     *
-     * @param branch
-     */
-    void add(IBranch branch);
-
-    /**
-     * 增加叶子节点
-     *
-     * @param leaf
-     */
-    void add(ILeaf leaf);
-
-    /**
-     * 获得下级信息
-     *
-     * @return
-     */
-    List getSubordinateInfo();
+    List<ICorp> getSubordinate();
 }
