@@ -1,4 +1,4 @@
-package com.gorden5566.learn.pattern.composite.demo.tree;
+package com.gorden5566.learn.pattern.composite.demo.safe.tree;
 
 /**
  * 抽象构件

@@ -1,9 +1,12 @@
-package com.gorden5566.learn.pattern.composite.demo;
+package com.gorden5566.learn.pattern.composite.demo.safe;
 
-import com.gorden5566.learn.pattern.composite.demo.tree.Component;
-import com.gorden5566.learn.pattern.composite.demo.tree.Composite;
-import com.gorden5566.learn.pattern.composite.demo.tree.Leaf;
+import com.gorden5566.learn.pattern.composite.demo.safe.tree.Component;
+import com.gorden5566.learn.pattern.composite.demo.safe.tree.Composite;
+import com.gorden5566.learn.pattern.composite.demo.safe.tree.Leaf;
 
+/**
+ * 安全模式
+ */
 public class Client {
     public static void main(String[] args) {
         //创建一个根节点
