@@ -12,7 +12,7 @@ public class LetterProcessImpl implements ILetterProcess {
     }
 
     @Override
-    public void letterInoToEnvelope() {
+    public void letterInToEnvelope() {
         System.out.println("把信放到信封中...");
     }
 

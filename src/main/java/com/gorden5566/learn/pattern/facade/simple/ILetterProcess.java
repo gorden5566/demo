@@ -18,7 +18,7 @@ public interface ILetterProcess {
     /**
      * 把信放到信封里
      */
-    void letterInoToEnvelope();
+    void letterInToEnvelope();
 
     /**
      * 然后邮递
