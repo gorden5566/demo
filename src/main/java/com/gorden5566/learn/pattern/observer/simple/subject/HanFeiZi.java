@@ -1,20 +1,31 @@
 package com.gorden5566.learn.pattern.observer.simple.subject;
 
 import com.gorden5566.learn.pattern.observer.simple.observer.ILiSi;
-import com.gorden5566.learn.pattern.observer.simple.observer.LiSi;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HanFeiZi implements IHanFeiZi {
 
-    private ILiSi liSi = new LiSi();
+    private List<ILiSi> list = new ArrayList<>();
+
     @Override
     public void haveBreakfast() {
         System.out.println("韩非子:开始吃饭了...");
-        this.liSi.update("韩非子在吃饭");
+        for (ILiSi iLiSi : list) {
+            iLiSi.update("韩非子在吃饭");
+        }
     }
 
     @Override
     public void haveFun() {
         System.out.println("韩非子:开始娱乐了...");
-        this.liSi.update("韩非子在娱乐");
+        for (ILiSi iLiSi : list) {
+            iLiSi.update("韩非子在娱乐");
+        }
+    }
+
+    public void addObserver(ILiSi liSi) {
+        this.list.add(liSi);
     }
 }
