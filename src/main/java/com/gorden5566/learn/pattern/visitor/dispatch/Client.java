@@ -11,16 +11,13 @@ import com.gorden5566.learn.pattern.visitor.dispatch.role.Role;
  */
 public class Client {
     public static void main(String[] args) {
-        //定义一个演员
+        //定义一个演员，用于访问角色
         AbstractActor actor = new OldActor();
 
-        //定义一个角色，问题点：通过父类型访问
+        //定义一个角色
         Role role = new KungFuRole();
 
-        //开始演戏：演员可以扮演任何角色
-        actor.act(role);
-
-        //开始演戏：年龄大了，不能演功夫角色
-        actor.act(new KungFuRole());
+        // 说实话，这里讲的不好，没有说清楚这样做到底是在搞啥
+        role.accept(actor);
     }
 }
