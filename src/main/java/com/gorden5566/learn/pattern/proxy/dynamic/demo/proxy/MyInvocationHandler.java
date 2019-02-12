@@ -27,6 +27,7 @@ public class MyInvocationHandler implements InvocationHandler {
      * @return
      * @throws Throwable
      */
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //执行被代理的方法
         return method.invoke(this.target, args);
