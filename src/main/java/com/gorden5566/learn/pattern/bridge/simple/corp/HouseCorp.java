@@ -1,18 +1,15 @@
 package com.gorden5566.learn.pattern.bridge.simple.corp;
 
+import com.gorden5566.learn.pattern.bridge.simple.product.House;
+
 /**
  * @author gorden5566
  * @date 2019-02-13
  */
 public class HouseCorp extends Corp {
-    @Override
-    protected void produce() {
-        System.out.println("房地产公司盖房子...");
-    }
 
-    @Override
-    protected void sell() {
-        System.out.println("房地产公司出售房子...");
+    public HouseCorp(House house) {
+        super(house);
     }
 
     @Override

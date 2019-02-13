@@ -1,5 +1,7 @@
 package com.gorden5566.learn.pattern.bridge.simple.corp;
 
+import com.gorden5566.learn.pattern.bridge.simple.product.Product;
+
 /**
  * @author gorden5566
  * @date 2019-02-13
@@ -7,23 +9,25 @@ package com.gorden5566.learn.pattern.bridge.simple.corp;
 public abstract class Corp {
 
     /**
-     * 如果是公司就应该有生产，不管是软件公司还是制造业公司
-     * 每家公司生产的东西都不一样，所以由实现类来完成
+     * 定义一个抽象的产品对象，不知道具体是什么产品
      */
-    protected abstract void produce();
+    private Product product;
 
     /**
-     * 有产品了，那肯定要销售啊，不销售公司怎么生存
+     * 构造函数，由子类定义传递具体的产品进来
+     * @param product
      */
-    protected abstract void sell();
+    public Corp(Product product){
+        this.product = product;
+    }
 
     /**
-     * 公司是干什么的？赚钱的
+     * 公司是干什么的？赚钱的！
      */
     public void makeMoney(){
-        //每个公司都是一样，先生产
-        this.produce();
+        //每家公司都是一样，先生产
+        this.product.beProducted();
         //然后销售
-        this.sell();
+        this.product.beSelled();
     }
 }
