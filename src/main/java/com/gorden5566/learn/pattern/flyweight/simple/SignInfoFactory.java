@@ -24,7 +24,7 @@ public class SignInfoFactory {
     /**
      * 从池中获得对象
      *
-     * @param key
+     * @param key 考试科目+考试地点
      * @return
      */
     public static SignInfo getSignInfo(String key) {
