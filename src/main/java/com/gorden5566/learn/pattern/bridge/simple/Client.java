@@ -2,6 +2,7 @@ package com.gorden5566.learn.pattern.bridge.simple;
 
 import com.gorden5566.learn.pattern.bridge.simple.corp.HouseCorp;
 import com.gorden5566.learn.pattern.bridge.simple.corp.ShanZhaiCorp;
+import com.gorden5566.learn.pattern.bridge.simple.product.Clothes;
 import com.gorden5566.learn.pattern.bridge.simple.product.House;
 import com.gorden5566.learn.pattern.bridge.simple.product.IPod;
 
@@ -20,7 +21,8 @@ public class Client {
 
         //山寨公司生产的产品很多，不过我只要指定产品就成了
         System.out.println("-------山寨公司是这样运行的-------");
-        ShanZhaiCorp shanZhaiCorp = new ShanZhaiCorp(new IPod());
+//        ShanZhaiCorp shanZhaiCorp = new ShanZhaiCorp(new IPod());
+        ShanZhaiCorp shanZhaiCorp = new ShanZhaiCorp(new Clothes());
         shanZhaiCorp.makeMoney();
 
     }
