@@ -4,6 +4,6 @@
 *.iws
 .idea
 *.txt
-target
+/target
 .DS_Store
 .settings/
