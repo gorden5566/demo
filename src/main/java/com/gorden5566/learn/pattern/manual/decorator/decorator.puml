@@ -8,11 +8,11 @@ abstract class Decorator
 class ConcreteDecorator
 class ConcreteComponent
 
-ConcreteDecorator -right-|> Decorator
+ConcreteDecorator -up-|> Decorator
 
-Decorator -up-|> Component
 ConcreteComponent -right-|> Component
+Decorator -up-|> Component
 
-Decorator o--> Component
+Decorator o--> Component : +component
 
 @enduml
