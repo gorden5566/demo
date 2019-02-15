@@ -1,0 +1,15 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Context {
+    +contextInterface
+}
+interface Strategy {
+    +algorithmInterface()
+}
+class ConcreteStrategy
+
+ConcreteStrategy .up.|> Strategy
+Context o-right-> Strategy : +strategy
+
+@enduml

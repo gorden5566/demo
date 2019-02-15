@@ -1,0 +1,11 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class Mediator
+abstract class Colleague
+class ConcreteMediator
+
+ConcreteMediator -up-|> Mediator
+Colleague -left-> Mediator : has a
+
+@enduml

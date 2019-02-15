@@ -1,0 +1,17 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+interface Target {
+    +request()
+}
+class Adaptee {
+    +specificRequest()
+}
+class Adapter
+
+Adapter .up.|> Target
+Client -right-> Target
+Adapter -left-|> Adaptee
+
+@enduml

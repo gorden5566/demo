@@ -1,0 +1,14 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+abstract class Prototype {
+    +clone()
+}
+class ConcretePrototype
+
+ConcretePrototype -up-|> Prototype
+
+Client -right-> Prototype : +prototype
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+class ObjectStructure
+
+interface Visitor {
+    +visitConcreteElement(elem: ConcreteElement)
+}
+class ConcreteVisitor
+
+abstract class Element
+class ConcreteElement
+
+ConcreteVisitor .up.|> Visitor
+ConcreteElement -up-|> Element
+
+Client -down-> ObjectStructure
+ObjectStructure -right-> Element
+
+Client -right-> Visitor
+
+Element .up.> Visitor
+
+@enduml

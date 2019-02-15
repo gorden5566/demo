@@ -1,0 +1,9 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Facade
+class "Subsystem Classes"
+
+Facade -down-> "Subsystem Classes"
+
+@enduml

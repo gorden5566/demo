@@ -1,0 +1,17 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Originator {
+    +setMemento(m: Memento)
+    +createMemento()
+}
+class Memento {
+    +getState()
+    +setState()
+}
+class Caretaker
+
+Originator .right.> Memento
+Caretaker o-left-> Memento : +memento
+
+@enduml

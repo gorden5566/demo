@@ -1,0 +1,16 @@
+@startuml
+
+class Client
+abstract class AbstractFactory
+abstract class AbstractProduct
+
+class ConcreteFactory
+class ConcreteProduct
+
+ConcreteFactory -up-|> AbstractFactory
+ConcreteProduct -up-|> AbstractProduct
+
+Client -down-> AbstractFactory
+Client -down-> AbstractProduct
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+abstract class Component {
+    +operation()
+}
+class Composite {
+    +add(Component)
+    +remove(Component)
+    +getChild(int)
+}
+class Leaf
+
+Client -right-> Component
+
+Leaf -up-|> Component
+Composite -left-|> Component
+Composite o-left-> Component
+
+@enduml

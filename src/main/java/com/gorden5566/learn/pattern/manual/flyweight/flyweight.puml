@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+class FlyweightFactory {
+    +getFlyweight(key)
+}
+abstract class Flyweight {
+    +operation()
+}
+abstract class ConcreteFlyweight
+abstract class UnsharedConcreteFlyweight
+
+FlyweightFactory o-right-> Flyweight : +flyweights
+
+ConcreteFlyweight -up-|> Flyweight
+UnsharedConcreteFlyweight -up-|> Flyweight
+
+Client -up-> FlyweightFactory
+Client -up-> ConcreteFlyweight
+Client -up-> UnsharedConcreteFlyweight
+
+@enduml

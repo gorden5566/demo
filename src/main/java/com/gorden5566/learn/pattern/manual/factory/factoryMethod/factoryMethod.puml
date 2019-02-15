@@ -1,0 +1,14 @@
+@startuml
+
+abstract class Creator
+abstract class Product
+
+class ConcreteCreator
+class ConcreteProduct
+
+ConcreteCreator -up-|> Creator
+ConcreteProduct -up-|> Product
+
+ConcreteCreator .left.> ConcreteProduct : 依赖具体产品
+
+@enduml

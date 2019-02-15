@@ -1,0 +1,20 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client
+class Context
+abstract class AbstractExpression {
+    +interpreter()
+}
+class TerminalExpression
+class NonTerminalExpression
+
+TerminalExpression -left-|> AbstractExpression
+NonTerminalExpression -up-|> AbstractExpression
+
+NonTerminalExpression o-up-> AbstractExpression
+
+Client -right-> Context
+Client -down-> AbstractExpression
+
+@enduml

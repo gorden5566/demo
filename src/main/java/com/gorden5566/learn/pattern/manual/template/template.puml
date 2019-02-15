@@ -1,0 +1,16 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class AbstractClass{
+    #void doAnything()
+    #void doSomething()
+    +void templateMethod()
+}
+
+class ConcreteClass1
+class ConcreteClass2
+
+ConcreteClass1 -up-|> AbstractClass
+ConcreteClass2 -up-|> AbstractClass
+
+@enduml
