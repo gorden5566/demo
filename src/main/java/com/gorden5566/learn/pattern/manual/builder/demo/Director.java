@@ -4,7 +4,7 @@ package com.gorden5566.learn.pattern.manual.builder.demo;
  * @author gorden5566
  */
 public class Director {
-    private Builder builder = new ConcreteProduct();
+    private Builder builder = new ConcreteBuilder();
 
     /**
      * 构建不同的产品
