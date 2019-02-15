@@ -1,3 +1,55 @@
+## 设计原则
+
+### 单一职责
+
+There should never be more than one reason for a class to change.
+
+接口一定要做到单一职责，类的设计尽量做到只有一个原因引起变化
+
+### 里氏替换原则
+
+Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it
+
+所有引用基类的地方必须能透明地使用其子类的对象
+
+### 依赖倒置原则
+
+High level modules should not depend upon low level modules.Both should depend upon abstractions.Abstractions should not depend upon details.Details should depend upon abstractions
+
+* 高层模块不应该依赖低层模块，两者都应该依赖其抽象
+
+* 抽象不应该依赖细节
+
+* 细节应该依赖抽象
+
+### 接口隔离原则
+
+Clients should not be forced to depend upon interfaces that they don't use
+
+客户端不应该依赖它不需要的接口
+
+The dependency of one class to another one should depend on the smallest possible interface
+
+类间的依赖关系应该建立在最小的接口上
+
+两个定义概括为一句话：建立单一接口，不要建立臃肿庞大的接口。
+
+再通俗一点讲：接口尽量细化，同时接口中的方法尽量少。
+
+### 迪米特法则
+
+迪米特法则（Law of Demeter，LoD）也称为最少知识原则（Least Knowledge Principle，LKP）
+
+一个对象应该对其他对象有最少的了解。
+
+通俗地讲，一个类应该对自己需要耦合或调用的类知道得最少，你（被耦合或调用的类）的内部是如何复杂都和我没关系，那是你的事情，我就知道你提供的这么多public方法，我就调用这么多，其他的我一概不关心
+
+### 开闭原则
+
+Software entities like classes,modules and functions should be open for extension but closed for modifications
+
+一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。
+
 ## 设计模式类型
 
 ### 创建型
