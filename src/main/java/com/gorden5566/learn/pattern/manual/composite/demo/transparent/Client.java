@@ -6,12 +6,12 @@ import com.gorden5566.learn.pattern.manual.composite.demo.transparent.tree.Leaf;
 
 /**
  * 透明模式
- * 把用来组合使用的方法放到抽象类中， 比如add()、 remove()以及getChildren等方法
- * 不管叶子对象还是树枝对象都有相同的结
+ * 把用来组合使用的方法放到抽象类中，比如add()、remove()以及getChildren等方法
+ * 不管叶子对象还是树枝对象都有相同的结构
  */
 public class Client {
     public static void main(String[] args) {
-//创建一个根节点
+        //创建一个根节点
         Composite root = new Composite();
         root.doSomething();
 
