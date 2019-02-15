@@ -14,8 +14,14 @@ class Leaf
 
 Client -right-> Component
 
-Leaf -up-|> Component
-Composite -left-|> Component
-Composite o-left-> Component
+Leaf -left-|> Component
+Composite -up-|> Component
+Composite o-up-> Component
+
+note bottom of Composite
+安全模式：把用来组合使用的
+方法放到实现类中，比如add()、
+remove()等方法
+end note
 
 @enduml

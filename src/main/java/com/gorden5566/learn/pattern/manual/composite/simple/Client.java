@@ -76,14 +76,17 @@ public class Client {
      * @param root
      * @return
      */
-    public static String getTreeInfo(Branch root){
+    public static String getTreeInfo(Branch root) {
         List<Corp> subordinateList = root.getSubordinate();
         String info = "";
-        for(Corp s :subordinateList){
-            if(s instanceof Leaf){ //是员工就直接获得信息
-                info = info + s.getInfo()+"\n";
-            }else{ //是个小头目
-                info = info+s.getInfo()+"\n"+ getTreeInfo((Branch)s);
+        for (Corp s : subordinateList) {
+            //是员工就直接获得信息
+            if (s instanceof Leaf) {
+                info = info + s.getInfo() + "\n";
+            }
+            //是个小头目
+            else {
+                info = info + s.getInfo() + "\n" + getTreeInfo((Branch) s);
             }
         }
         return info;
