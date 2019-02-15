@@ -1,0 +1,19 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class Product
+
+class Factory {
+    +static factoryMethod()
+}
+class ConcreteProduct
+
+ConcreteProduct -up-|> Product
+Factory .left.> ConcreteProduct : 依赖具体产品
+
+note bottom of Factory
+去掉工厂方法的接口，直接使用
+具体实现的静态工厂方法
+end note
+
+@enduml

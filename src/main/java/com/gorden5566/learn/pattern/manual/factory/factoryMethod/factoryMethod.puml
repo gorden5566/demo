@@ -1,6 +1,9 @@
 @startuml
+skinparam classAttributeIconSize 0
 
-abstract class Creator
+abstract class Creator {
+    +factoryMethod()
+}
 abstract class Product
 
 class ConcreteCreator
