@@ -1,6 +1,6 @@
 package com.gorden5566.learn.pattern.manual.builder.demo;
 
-public class ConcreteProduct extends Builder {
+public class ConcreteBuilder extends Builder {
     private Product product = new Product();
 
     /**

@@ -3,11 +3,11 @@ skinparam classAttributeIconSize 0
 
 class Director
 abstract class Builder
-class ConcreteProduct
+class ConcreteBuilder
 class Product
 
-ConcreteProduct -up-|> Builder
-ConcreteProduct .right.> Product : 依赖
+ConcreteBuilder -up-|> Builder
+ConcreteBuilder .right.> Product : 依赖
 Director o-right-> Builder : +builder
 
 @enduml
