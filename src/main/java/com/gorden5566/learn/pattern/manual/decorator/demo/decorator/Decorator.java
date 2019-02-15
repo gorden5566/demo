@@ -2,7 +2,7 @@ package com.gorden5566.learn.pattern.manual.decorator.demo.decorator;
 
 import com.gorden5566.learn.pattern.manual.decorator.demo.component.Component;
 
-public class Decorator extends Component {
+public abstract class Decorator extends Component {
 
     private Component component;
 
