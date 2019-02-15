@@ -1,9 +1,16 @@
 package com.gorden5566.learn.pattern.manual.builder.demo;
 
+/**
+ * @author gorden5566
+ */
 public class Director {
     private Builder builder = new ConcreteProduct();
 
-    //构建不同的产品
+    /**
+     * 构建不同的产品
+     *
+     * @return
+     */
     public Product getAProduct() {
         builder.setPart();
 
