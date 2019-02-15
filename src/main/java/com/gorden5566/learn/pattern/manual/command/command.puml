@@ -13,7 +13,7 @@ class ConcreteCommand
 
 Invoker o-right-> Command
 ConcreteCommand -up-|> Command
-ConcreteCommand -left-> Receiver
+ConcreteCommand -left-> Receiver : +receiver
 
 Client -down-> Receiver
 Client .down.> ConcreteCommand
