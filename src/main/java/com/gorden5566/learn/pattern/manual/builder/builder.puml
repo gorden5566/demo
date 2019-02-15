@@ -1,8 +1,12 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class Director
-abstract class Builder
+class Director {
+    +construct()
+}
+abstract class Builder {
+    +buildPart()
+}
 class ConcreteBuilder
 class Product
 
