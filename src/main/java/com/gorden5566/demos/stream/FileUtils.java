@@ -1,8 +1,6 @@
 package com.gorden5566.demos.stream;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author gorden5566
@@ -46,6 +44,20 @@ public class FileUtils {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public static void printFileContent(String fileName) {
+        try {
+            FileReader fileReader = new FileReader(new File(fileName));
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
