@@ -1,4 +1,4 @@
-package com.gorden5566.demos.stream;
+package com.gorden5566.demos.io;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,10 +1,8 @@
-package com.gorden5566.demos.stream;
+package com.gorden5566.demos.io;
 
 import org.junit.Test;
 
 import java.io.*;
-
-import static org.junit.Assert.*;
 
 /**
  * @author gorden5566

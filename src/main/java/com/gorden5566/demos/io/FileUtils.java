@@ -1,4 +1,4 @@
-package com.gorden5566.demos.stream;
+package com.gorden5566.demos.io;
 
 import java.io.*;
 
