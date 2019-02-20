@@ -27,6 +27,9 @@ public class NIOUtils {
         // 缓冲区
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
+        // 使用直接内存
+//        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024);
+
         while (true) {
             // 读取数据到缓冲区
             int read = inputStreamChannel.read(byteBuffer);
