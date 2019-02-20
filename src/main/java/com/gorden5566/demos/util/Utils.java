@@ -34,4 +34,20 @@ public class Utils {
         }
         return str;
     }
+
+    public static String getPackagePath(Class<?> clazz) {
+        if (clazz == null) {
+            return null;
+        }
+
+        return clazz.getResource("").getPath();
+    }
+
+    public static String getPackageRootPath(Class<?> clazz) {
+        if (clazz == null) {
+            return null;
+        }
+
+        return clazz.getResource("/").getPath();
+    }
 }
