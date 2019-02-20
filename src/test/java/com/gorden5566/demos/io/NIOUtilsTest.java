@@ -1,12 +1,11 @@
 package com.gorden5566.demos.io;
 
+import com.gorden5566.demos.io.nio.NIOUtils;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 /**
  * @author gorden5566

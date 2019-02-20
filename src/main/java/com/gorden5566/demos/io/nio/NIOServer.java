@@ -1,4 +1,4 @@
-package com.gorden5566.demos.io;
+package com.gorden5566.demos.io.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
