@@ -1,0 +1,46 @@
+@startuml
+hide empty description
+
+title Java线程状态
+
+'初始状态
+state "NEW\n(初始)" as NEW
+
+'Java运行状态包括操作系统的就绪和运行两种状态
+state "RUNNABLE\n(运行)" as RUNNABLE {
+    state "READY\n(就绪)" as READY
+    state "RUNNING\n(运行中)" as RUNNING
+
+    READY -down-> RUNNING : 系统调度
+    RUNNING -up-> READY : yield()
+}
+
+'等待状态
+state "WAITING\n(等待)" as WAITING
+
+'超时等待状态
+state "TIMED_WAITING\n(超时等待)" as TIMED_WAITING
+
+'阻塞状态
+state "BLOCKED\n(阻塞)" as BLOCKED
+
+'终止状态
+state "TERMINATED\n(终止)" as TERMINATED
+
+[*] -down-> NEW : 实例化
+NEW -down-> RUNNABLE : Thread.start()
+
+RUNNABLE -left-> WAITING : Object.wait()\n Object.join()\n LockSupport.park()
+WAITING -right-> RUNNABLE : Object.notify()\n Object.notifyAll()\n LockSupport.unpark()
+
+RUNNABLE -right-> TIMED_WAITING : Thread.sleep(long)\n Object.wait(long)\n Thread.join(long)\n LockSupport.parkNanos()\n LockSupport.parkUntil()
+TIMED_WAITING -left-> RUNNABLE : Object.notify()\n Object.notifyAll()\n LockSupport.park()\n 超时时间到
+
+RUNNABLE -down-> BLOCKED : synchronized
+BLOCKED -up-> RUNNABLE : 获取到锁
+
+RUNNABLE -down-> TERMINATED : 执行完成
+
+TERMINATED -down-> [*]
+
+@enduml
