@@ -1,12 +1,11 @@
 package com.gorden5566.demos.zookeeper;
 
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
-import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
@@ -16,6 +15,8 @@ import java.util.concurrent.CountDownLatch;
  * @date 2019-03-06
  */
 public class ZooKeeperProSync implements Watcher {
+
+    private static Logger logger = LoggerFactory.getLogger(ZooKeeperProSync.class);
 
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
     private static ZooKeeper zk = null;
@@ -31,8 +32,14 @@ public class ZooKeeperProSync implements Watcher {
         //等待zk连接成功的通知
         connectedSemaphore.await();
 
+        try {
+            zk.create(path, "test".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        } catch (Exception e) {
+            logger.error("create node failed", e);
+        }
+
         //获取path目录节点的配置数据，并注册默认的监听器
-        System.out.println(new String(zk.getData(path, true, stat)));
+        logger.info(new String(zk.getData(path, true, stat)));
 
         Thread.sleep(Integer.MAX_VALUE);
     }
@@ -48,7 +55,7 @@ public class ZooKeeperProSync implements Watcher {
             // zk目录节点数据变化通知事件
             else if (event.getType() == EventType.NodeDataChanged) {
                 try {
-                    System.out.println("配置已修改，新值为：" + new String(zk.getData(event.getPath(), true, stat)));
+                    logger.info("配置已修改，新值为：" + new String(zk.getData(event.getPath(), true, stat)));
                 } catch (Exception e) {
                 }
             }
