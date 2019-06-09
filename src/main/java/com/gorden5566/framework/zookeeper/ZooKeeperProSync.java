@@ -1,4 +1,4 @@
-package com.gorden5566.demos.zookeeper;
+package com.gorden5566.framework.zookeeper;
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.Watcher.Event.EventType;
