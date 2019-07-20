@@ -1,6 +1,6 @@
-package com.gorden5566.learn.netty.paio;
+package com.gorden5566.learn.netty.io.paio;
 
-import com.gorden5566.learn.netty.bio.TimeServerHandler;
+import com.gorden5566.learn.netty.io.bio.TimeServerHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;

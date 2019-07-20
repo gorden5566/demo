@@ -1,10 +1,10 @@
-package com.gorden5566.learn.netty.aio;
+package com.gorden5566.learn.netty.io.aio;
 
 /**
  * @author gorden5566
  * @date 2019/07/19
  */
-public class TimeServer {
+public class TimeClient {
     public static void main(String[] args) {
         int port = 8080;
         if (args != null && args.length > 0) {
@@ -13,7 +13,7 @@ public class TimeServer {
             } catch (NumberFormatException e) {
             }
         }
-        AsyncTimeServerHandler timeServer = new AsyncTimeServerHandler(port);
-        new Thread(timeServer, "AIO-AsyncTimeServerHandler-001").start();
+        AsyncTimeClientHandler client = new AsyncTimeClientHandler("127.0.0.1", port);
+        new Thread(client, "AIO-AsyncTimeClientHandler-001").start();
     }
 }

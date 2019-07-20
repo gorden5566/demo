@@ -1,4 +1,4 @@
-package com.gorden5566.learn.netty.aio;
+package com.gorden5566.learn.netty.io.aio;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;

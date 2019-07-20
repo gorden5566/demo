@@ -1,4 +1,4 @@
-package com.gorden5566.learn.netty.nio;
+package com.gorden5566.learn.netty.io.nio;
 
 /**
  * @author gorden5566

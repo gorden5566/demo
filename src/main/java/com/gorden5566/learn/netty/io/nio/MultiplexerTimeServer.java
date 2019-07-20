@@ -1,4 +1,4 @@
-package com.gorden5566.learn.netty.nio;
+package com.gorden5566.learn.netty.io.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

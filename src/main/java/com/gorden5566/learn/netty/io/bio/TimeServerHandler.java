@@ -1,4 +1,4 @@
-package com.gorden5566.learn.netty.bio;
+package com.gorden5566.learn.netty.io.bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
