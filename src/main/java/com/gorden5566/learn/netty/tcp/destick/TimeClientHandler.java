@@ -1,4 +1,4 @@
-package com.gorden5566.learn.netty.stick;
+package com.gorden5566.learn.netty.tcp.destick;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -30,10 +30,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req);
-        String body = new String(req, "UTF-8");
+        String body = (String) msg;
         System.out.println("now is: " + body + ", counter: " + ++counter);
     }
 
