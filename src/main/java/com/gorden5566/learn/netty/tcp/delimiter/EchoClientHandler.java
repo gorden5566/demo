@@ -2,14 +2,14 @@ package com.gorden5566.learn.netty.tcp.delimiter;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author gorden5566
  * @date 2019/07/20
  */
-public class EchoClientHandler extends ChannelHandlerAdapter {
+public class EchoClientHandler extends ChannelInboundHandlerAdapter {
     private int counter;
     private static final String ECHO_REQ = "Hello World.$_";
 

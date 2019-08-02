@@ -24,7 +24,7 @@ public class ChineseProverbServerHandler extends SimpleChannelInboundHandler<Dat
     }
 
     @Override
-    protected void messageReceived(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
         String req = msg.content().toString(CharsetUtil.UTF_8);
         System.out.println(req);
 
