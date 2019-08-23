@@ -1,5 +1,6 @@
 package com.gorden5566.learn.netty.servlet;
 
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
@@ -40,7 +41,7 @@ public class ServletHandler extends SimpleChannelInboundHandler<FullHttpRequest>
         HttpServletResponse resp = getHttpServletResponse(response);
 
         // get servlet
-        Servlet servlet = getServlet();
+        Servlet servlet = getServlet(request);
 
         // do service
         servlet.service(req, resp);
@@ -48,7 +49,7 @@ public class ServletHandler extends SimpleChannelInboundHandler<FullHttpRequest>
         // after service
         resp.getWriter().flush();
 
-        ctx.channel().writeAndFlush(response);
+        ctx.channel().writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 
     private HttpServletResponse getHttpServletResponse(FullHttpResponse response) {
@@ -59,7 +60,7 @@ public class ServletHandler extends SimpleChannelInboundHandler<FullHttpRequest>
         return new DefaultHttpServletRequest(ctx, request);
     }
 
-    private Servlet getServlet() {
+    private Servlet getServlet(FullHttpRequest request) {
         return new HelloServlet();
     }
 }
