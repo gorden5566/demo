@@ -61,6 +61,8 @@ public class ServletHandler extends SimpleChannelInboundHandler<FullHttpRequest>
     }
 
     private Servlet getServlet(FullHttpRequest request) {
-        return new HelloServlet();
+        String uri = request.uri();
+
+        return DefaultServletFactory.getMappedServlet(uri);
     }
 }

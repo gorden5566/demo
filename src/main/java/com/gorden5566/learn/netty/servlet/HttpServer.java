@@ -5,12 +5,7 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpRequestDecoder;
-import io.netty.handler.codec.http.HttpResponseEncoder;
-import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
  * @author gorden5566
@@ -18,7 +13,10 @@ import io.netty.handler.stream.ChunkedWriteHandler;
  */
 public class HttpServer {
     public static void main(String[] args) throws InterruptedException {
-        new HttpServer().run("127.0.0.1", 8081);
+        DefaultServletFactory.addServletWithMapping(HelloServlet.class, "/");
+        DefaultServletFactory.addServletWithMapping(HelloServlet.class, "/hello");
+
+        new HttpServer().run("127.0.0.1", 8080);
     }
 
     public void run(final String host, final int port) throws InterruptedException {
