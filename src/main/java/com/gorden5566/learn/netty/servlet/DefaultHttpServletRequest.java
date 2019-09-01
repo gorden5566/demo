@@ -10,10 +10,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
 import java.security.Principal;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author gorden5566
@@ -57,12 +54,12 @@ public class DefaultHttpServletRequest implements HttpServletRequest {
 
     @Override
     public Enumeration<String> getHeaderNames() {
-        return null;
+        return Collections.enumeration(request.headers().names());
     }
 
     @Override
     public int getIntHeader(String name) {
-        return 0;
+        return request.headers().getInt(name);
     }
 
     @Override
