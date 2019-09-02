@@ -15,11 +15,11 @@ public class RandomLoadBalance extends AbstractLoadBalance {
     protected Invoker doSelect(List<Invoker> invokers) {
         int length = invokers.size();
 
-        double totalWeight = 0;
-        double[] sumWeightArray = new double[length];
+        int totalWeight = 0;
+        int[] sumWeightArray = new int[length];
 
         for (int index = 0; index < length; index++) {
-            double weight = getWeight(invokers.get(index));
+            int weight = getWeight(invokers.get(index));
             totalWeight += weight;
 
             sumWeightArray[index] = totalWeight;
@@ -37,12 +37,12 @@ public class RandomLoadBalance extends AbstractLoadBalance {
      * @param totalWeight 总权重
      * @return
      */
-    private int getIndex(double[] sumWeightArray, double totalWeight) {
+    private int getIndex(int[] sumWeightArray, int totalWeight) {
         int length = sumWeightArray.length;
-        double offset = random.nextDouble() * totalWeight;
+        int offset = random.nextInt(totalWeight);
 
         for (int index = 0; index < length; index++) {
-            if (Double.compare(sumWeightArray[index], offset) > 0) {
+            if (sumWeightArray[index] > offset) {
                 return index;
             }
         }

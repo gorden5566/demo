@@ -7,7 +7,7 @@ package com.gorden5566.demos.loadbalance;
 public class Invoker {
     private String address;
 
-    private double weight;
+    private int weight;
 
     private int invokeNum = 0;
 
@@ -19,11 +19,11 @@ public class Invoker {
         this.address = address;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

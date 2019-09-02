@@ -13,20 +13,20 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class RoundRobinLoadBalance extends AbstractLoadBalance {
 
-    private ConcurrentMap<Invoker, Double> currWeightMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<Invoker, Integer> currWeightMap = new ConcurrentHashMap<>();
     private AtomicInteger sequence = new AtomicInteger();
 
     @Override
     protected Invoker doSelect(List<Invoker> invokers) {
         int length = invokers.size();
-        double totalWeight = 0;
-        double maxWeight = 0;
-        double minWeight = Double.MAX_VALUE;
-        Map<Invoker, Double> effectiveWeightMap = new HashMap<>();
+        int totalWeight = 0;
+        int maxWeight = 0;
+        int minWeight = Integer.MAX_VALUE;
+        Map<Invoker, Integer> effectiveWeightMap = new HashMap<>();
 
         for (int i = 0; i < length; i++) {
             Invoker invoker = invokers.get(i);
-            double weight = getWeight(invoker);
+            int weight = getWeight(invoker);
 
             maxWeight = Math.max(maxWeight, weight);
             minWeight = Math.min(minWeight, weight);
@@ -38,11 +38,11 @@ public class RoundRobinLoadBalance extends AbstractLoadBalance {
         // Integer.MIN_VALUE call getAndIncrement() will lead to Integer.MIN_VALUE
         // however it works well
         int currSequence = sequence.getAndIncrement();
-        if (Double.compare(totalWeight, 0) == 0 || Double.compare(maxWeight, minWeight) == 0) {
+        if (totalWeight == 0 || maxWeight == minWeight) {
             return invokers.get(currSequence % length);
         }
 
-        double currMaxWeight = 0;
+        int currMaxWeight = 0;
         int selectedIndex = 0;
 
         Invoker selectedInvoker;
@@ -50,21 +50,21 @@ public class RoundRobinLoadBalance extends AbstractLoadBalance {
             for (int i = 0; i < length; i++) {
                 Invoker invoker = invokers.get(i);
 
-                Double currentWeight = currWeightMap.get(invoker);
+                Integer currentWeight = currWeightMap.get(invoker);
                 if (currentWeight == null) {
-                    currWeightMap.putIfAbsent(invoker, 0.0);
+                    currWeightMap.putIfAbsent(invoker, 0);
                     currentWeight = currWeightMap.get(invoker);
                 }
 
-                Double effectiveWeight = effectiveWeightMap.get(invoker);
-                if (Double.compare(effectiveWeight, 0) <= 0) {
+                Integer effectiveWeight = effectiveWeightMap.get(invoker);
+                if (effectiveWeight <= 0) {
                     continue;
                 }
 
                 currentWeight += effectiveWeight;
                 currWeightMap.put(invoker, currentWeight);
 
-                if (Double.compare(currentWeight, currMaxWeight) > 0) {
+                if (currentWeight > currMaxWeight) {
                     currMaxWeight = currentWeight;
                     selectedIndex = i;
                 }

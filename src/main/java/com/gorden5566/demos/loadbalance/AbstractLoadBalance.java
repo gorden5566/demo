@@ -34,7 +34,7 @@ public abstract class AbstractLoadBalance implements LoadBalance {
      * @param invoker
      * @return
      */
-    protected double getWeight(Invoker invoker) {
+    protected int getWeight(Invoker invoker) {
         return invoker.getWeight();
     }
 }
