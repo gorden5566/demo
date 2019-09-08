@@ -94,4 +94,16 @@ public class LoadBalanceTest {
 
         printInvokers();
     }
+
+    @Test
+    public void testGcdRoundRobin() {
+        LoadBalance loadBalance = new GcdRoundRobinLoadBalance();
+        for (int i = 0; i < INVOKE_COUNT; i++) {
+            Invoker select = loadBalance.select(invokers);
+            select.invoke();
+//            System.out.println(select);
+        }
+
+        printInvokers();
+    }
 }
