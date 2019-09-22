@@ -1,53 +1,69 @@
 package com.gorden5566.demos.thread.future;
 
+import com.gorden5566.demos.thread.Profiler;
+
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @author gorden5566
  * @date 2019/09/19
  */
 public class FutureTaskTest {
-    private static ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     public static void main(String[] args) throws InterruptedException {
 
         // 定义任务
         // 任务 1 耗时 1s
         // 任务 2 耗时 5s
-        FutureTask<String> future1 = new FutureTask<>(new Task("task1", 1));
-        FutureTask<String> future2 = new FutureTask<>(new Task("task2", 5));
+        Task task1 = new Task("task1", 500);
+        Task task2 = new Task("task2", 1000);
+        Task task3 = new Task("task3", 678);
+        Task task4 = new Task("task4", 50);
 
-        long start = System.currentTimeMillis();
+        // 开始计时
+        Profiler.begin();
 
-        threadPool.submit(future1);
-        threadPool.submit(future2);
+        InvokeHelper.submit(task1);
+        Future<String> future1 = InvokeHelper.getFuture(String.class);
 
-        String task1 = future1.get(100000);
-        String task2 = future2.get(100000);
+        InvokeHelper.submit(task2);
+        Future<String> future2 = InvokeHelper.getFuture(String.class);
 
-        long end = System.currentTimeMillis();
+        InvokeHelper.submit(task3);
+        Future<String> future3 = InvokeHelper.getFuture(String.class);
 
-        System.out.println(task1);
-        System.out.println(task2);
+        InvokeHelper.submit(task4);
+        Future<String> future4 = InvokeHelper.getFuture(String.class);
 
-        System.out.println("cost: " + (end - start));
+        String result1 = future1.get(100000);
+        String result2 = future2.get(100000);
+        String result3 = future3.get(100000);
+        String result4 = future4.get(100000);
+
+        // 结束计时
+        long cost = Profiler.end();
+
+        System.out.println(result1);
+        System.out.println(result2);
+        System.out.println(result3);
+        System.out.println(result4);
+
+        System.out.println("costMillis: " + cost);
     }
 
     private static class Task implements Callable<String> {
         private String name;
-        private int count;
+        private long costMillis;
 
-        public Task(String name, int count) {
+        public Task(String name, long costMillis) {
             this.name = name;
-            this.count = count;
+            this.costMillis = costMillis;
         }
 
         @Override
         public String call() throws Exception {
             try {
-                Thread.sleep(count * 1000);
+                Thread.sleep(costMillis);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -59,7 +75,7 @@ public class FutureTaskTest {
         public String toString() {
             return "Task{" +
                 "name='" + name + '\'' +
-                ", count=" + count +
+                ", costMillis=" + costMillis +
                 '}';
         }
     }
