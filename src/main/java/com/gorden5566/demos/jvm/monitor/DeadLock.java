@@ -23,7 +23,7 @@ public class DeadLock {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             new Thread(new SynAddRunable(1, 2)).start();
             new Thread(new SynAddRunable(2, 1)).start();
         }
