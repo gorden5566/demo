@@ -7,7 +7,7 @@ import okhttp3.Response;
 import java.io.IOException;
 
 /**
- * @author renjianjun
+ * @author goren5566
  * @date 2019/12/27
  */
 public class GetExample {
