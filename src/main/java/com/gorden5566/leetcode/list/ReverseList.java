@@ -33,4 +33,38 @@ public class ReverseList {
 
         return reverseHead;
     }
+
+    public ListNode reverseList1(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        if (head.next == null) {
+            return head;
+        }
+
+        // 两个指针用于反转
+        ListNode pre = head.next;
+        ListNode p = head;
+
+        // head.next
+        head.next = null;
+
+        // 双指针后移，依次反转
+        while (pre != null) {
+            // 保存pre节点指针
+            ListNode temp = pre;
+
+            // pre往后移
+            pre = pre.next;
+
+            // 修改指针指向方向
+            temp.next = p;
+
+            // p跟过来
+            p = temp;
+        }
+
+        return p;
+    }
 }
