@@ -5,6 +5,7 @@ import java.util.List;
 public class ListNodeBuilder {
     private ListNode head;
     private ListNode tail;
+    private Integer pos;
 
     public static ListNodeBuilder builder() {
         return new ListNodeBuilder();
@@ -66,11 +67,32 @@ public class ListNodeBuilder {
     }
 
     /**
+     * 设置环的位置
+     * 从0开始
+     *
+     * @param pos
+     * @return
+     */
+    public ListNodeBuilder cycle(Integer pos) {
+        this.pos = pos;
+        return this;
+    }
+
+    /**
      * 构建
      *
      * @return
      */
     public ListNode build() {
+        if (pos != null && pos >= 0) {
+            int index = 0;
+            ListNode p = head;
+            while (index < pos && p != null) {
+                index++;
+                p = p.next;
+            }
+            tail.next = p;
+        }
         return head;
     }
 }

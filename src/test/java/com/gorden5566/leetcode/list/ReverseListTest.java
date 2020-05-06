@@ -37,7 +37,7 @@ public class ReverseListTest {
     }
 
     @Test
-    public void reverseList4() {
+    public void reverseList11() {
         ListNode head = ListNodeBuilder.builder().addNodes(new int[]{1, 2, 3, 4, 5}).build();
         ListUtils.printList(head);
         ListNode reverseList = new ReverseList().reverseList1(head);
@@ -45,7 +45,7 @@ public class ReverseListTest {
     }
 
     @Test
-    public void reverseList5() {
+    public void reverseList12() {
         ListNode head = ListNodeBuilder.builder().addNodes(new int[]{1}).build();
         ListUtils.printList(head);
         ListNode reverseList = new ReverseList().reverseList1(head);
@@ -53,7 +53,7 @@ public class ReverseListTest {
     }
 
     @Test
-    public void reverseList6() {
+    public void reverseList13() {
         ListNode head = ListNodeBuilder.builder().build();
         ListUtils.printList(head);
         ListNode reverseList = new ReverseList().reverseList1(head);
