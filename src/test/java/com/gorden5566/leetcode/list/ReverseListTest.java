@@ -2,6 +2,8 @@ package com.gorden5566.leetcode.list;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 /**
@@ -12,7 +14,7 @@ public class ReverseListTest {
 
     @Test
     public void reverseList1() {
-        ListNode head = ListNodeBuilder.builder().addNodes(new int[]{1, 2, 3, 4, 5}).build();
+        ListNode head = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 2, 3, 4, 5)).build();
         ListUtils.printList(head);
         ListNode reverseList = new ReverseList().reverseList(head);
         ListUtils.printList(reverseList);

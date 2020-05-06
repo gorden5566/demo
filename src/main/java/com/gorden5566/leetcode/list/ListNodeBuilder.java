@@ -1,5 +1,7 @@
 package com.gorden5566.leetcode.list;
 
+import java.util.List;
+
 public class ListNodeBuilder {
     private ListNode head;
     private ListNode tail;
@@ -41,6 +43,24 @@ public class ListNodeBuilder {
         }
         for (int val : valArr) {
             addNode(val);
+        }
+        return this;
+    }
+
+    /**
+     * 添加一组节点
+     *
+     * @param valList
+     * @return
+     */
+    public ListNodeBuilder addNodes(List<Integer> valList) {
+        if (valList == null || valList.isEmpty()) {
+            return this;
+        }
+        for (Integer val : valList) {
+            if (val != null) {
+                addNode(val);
+            }
         }
         return this;
     }
