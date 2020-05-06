@@ -1,5 +1,6 @@
 package com.gorden5566.leetcode.list;
 
+import java.security.InvalidParameterException;
 import java.util.List;
 
 public class ListNodeBuilder {
@@ -90,6 +91,9 @@ public class ListNodeBuilder {
             while (index < pos && p != null) {
                 index++;
                 p = p.next;
+            }
+            if (index != pos) {
+                throw new InvalidParameterException("pos: " + pos);
             }
             tail.next = p;
         }
