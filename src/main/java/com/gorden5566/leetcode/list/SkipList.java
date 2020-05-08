@@ -5,7 +5,7 @@ package com.gorden5566.leetcode.list;
  * @date 2020/05/08
  */
 public class SkipList {
-    private static final double LEVEL_PROB = 0.25d;
+    private static final double LEVEL_PROB = 0.5d;
     private static final int MAX_LEVEL = 16;
 
     private int levelCount = 1;
@@ -14,7 +14,7 @@ public class SkipList {
     public Node find(int value) {
         Node p = head;
         for (int i = levelCount - 1; i >= 0; i--) {
-            // 按层往后找到比目标值小的最大节点
+            // 按层往后找到前驱节点（比目标值小的最大节点）
             while (p.next[i] != null && p.next[i].data < value) {
                 p = p.next[i];
             }
@@ -37,13 +37,15 @@ public class SkipList {
         newNode.data = value;
         newNode.maxLevel = level;
 
-        // 找到比待插入值小的最大值，记录位置
+        // 记录每一层的前驱节点
         Node[] update = new Node[level];
         Node p = head;
         for (int i = level - 1; i >= 0; i--) {
+            // 按层往后找到前驱节点（比目标值小的最大节点）
             while (p.next[i] != null && p.next[i].data < value) {
                 p = p.next[i];
             }
+            // 记录前驱节点
             update[i] = p;
         }
 
@@ -78,13 +80,15 @@ public class SkipList {
     }
 
     public void delete(int value) {
-        // 找到比待插入值小的最大值，记录位置
+        // 记录每一层的前驱节点
         Node[] update = new Node[levelCount];
         Node p = head;
         for (int i = levelCount - 1; i >= 0; i--) {
+            // 按层往后找到前驱节点（比目标值小的最大节点）
             while (p.next[i] != null && p.next[i].data < value) {
                 p = p.next[i];
             }
+            // 记录前驱节点
             update[i] = p;
         }
 
@@ -106,7 +110,7 @@ public class SkipList {
 
     public class Node {
         private int data = -1;
-        private Node next[] = new Node[MAX_LEVEL];
+        private Node[] next = new Node[MAX_LEVEL];
         private int maxLevel = 0;
 
         @Override
