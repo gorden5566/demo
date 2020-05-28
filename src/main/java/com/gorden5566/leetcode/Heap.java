@@ -58,7 +58,7 @@ public class Heap {
 
     private void buildHeap(int[] a, int n) {
         for (int i = n / 2; i >= 1; i--) {
-            heapify(a, n, 1);
+            heapify(a, n, i);
         }
     }
 
