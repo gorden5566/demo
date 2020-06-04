@@ -1,7 +1,7 @@
 package com.gorden5566.leetcode.array;
 
 /**
- * @author renjianjun
+ * @author gorden5566
  * @date 2020/05/08
  */
 public class ArrayUtils {
