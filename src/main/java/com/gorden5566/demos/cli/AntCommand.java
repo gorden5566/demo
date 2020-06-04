@@ -81,7 +81,7 @@ public class AntCommand {
 
             // automatically generate the help statement
             HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp( "ant", options );
+            formatter.printHelp( "ant", options, true);
 
 
         } catch (ParseException exp) {
