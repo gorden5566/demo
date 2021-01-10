@@ -43,12 +43,13 @@ public class SimpleMap<K, V> implements Map<K, V>{
     @Override
     public V get(Object key) {
         int index = indexFor(key);
-        Node<K, V> node = table[index];
-        while (node != null && !key.equals(node.getKey())) {
-            node = node.getNext();
+        for (Node<K, V> node = table[index]; node != null; node = node.getNext()) {
+            if (key.equals(node.getKey())) {
+                return node.getValue();
+            }
         }
 
-        return node != null ? node.getValue() : null;
+        return null;
     }
 
     private int hashCode(Object key) {
