@@ -1,4 +1,4 @@
-package com.gorden5566.algorithm.collection;
+package com.gorden5566.algorithm.collection.map;
 
 /**
  * @author gorden5566

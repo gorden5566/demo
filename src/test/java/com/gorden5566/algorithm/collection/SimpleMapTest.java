@@ -1,5 +1,7 @@
 package com.gorden5566.algorithm.collection;
 
+import com.gorden5566.algorithm.collection.map.Map;
+import com.gorden5566.algorithm.collection.map.SimpleMap;
 import org.junit.Assert;
 import org.junit.Test;
 
