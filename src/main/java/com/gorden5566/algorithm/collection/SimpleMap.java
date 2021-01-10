@@ -27,23 +27,20 @@ public class SimpleMap<K, V> implements Map<K, V> {
             return null;
         }
 
+        // node != null && node.next != null
         while (node.getNext() != null) {
             if (key.equals(node.getKey())) {
-                V old = node.getValue();
-                node.setValue(value);
-                return old;
+                return node.setValue(value);
             }
             node = node.getNext();
         }
 
         if (key.equals(node.getKey())) {
-            V old = node.getValue();
-            node.setValue(value);
-            return old;
+            return node.setValue(value);
         } else {
             node.setNext(new Node<>(key, value));
+            this.size++;
         }
-        this.size++;
         return null;
     }
 
