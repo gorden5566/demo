@@ -4,7 +4,7 @@ package com.gorden5566.algorithm.collection;
  * @author gorden5566
  * @date 2021/01/10
  */
-public class SimpleMap<K, V> implements Map<K, V>{
+public class SimpleMap<K, V> implements Map<K, V> {
 
     private static final int DEFAULT_CAPACITY = 16;
 
@@ -19,25 +19,32 @@ public class SimpleMap<K, V> implements Map<K, V>{
     @Override
     public V put(K key, V value) {
         int index = indexFor(key);
-        if (table[index] == null) {
+
+        Node<K, V> node = table[index];
+        if (node == null) {
             table[index] = new Node<>(key, value);
             this.size++;
             return null;
         }
 
-        Node<K, V> node = table[index];
-        while (node.getNext() != null && !key.equals(node.getKey())) {
+        while (node.getNext() != null) {
+            if (key.equals(node.getKey())) {
+                V old = node.getValue();
+                node.setValue(value);
+                return old;
+            }
             node = node.getNext();
         }
+
         if (key.equals(node.getKey())) {
             V old = node.getValue();
             node.setValue(value);
             return old;
         } else {
             node.setNext(new Node<>(key, value));
-            this.size++;
-            return null;
         }
+        this.size++;
+        return null;
     }
 
     @Override
