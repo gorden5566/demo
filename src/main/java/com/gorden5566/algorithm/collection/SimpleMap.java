@@ -18,8 +18,7 @@ public class SimpleMap<K, V> implements Map<K, V>{
 
     @Override
     public V put(K key, V value) {
-        int h = hashCode(key);
-        int index = h % this.length();
+        int index = indexFor(key);
         if (table[index] == null) {
             table[index] = new Node<>(key, value);
             this.size++;
@@ -43,9 +42,7 @@ public class SimpleMap<K, V> implements Map<K, V>{
 
     @Override
     public V get(Object key) {
-        int h = hashCode(key);
-        int index = h % this.length();
-
+        int index = indexFor(key);
         Node<K, V> node = table[index];
         while (node != null && !key.equals(node.getKey())) {
             node = node.getNext();
@@ -57,6 +54,11 @@ public class SimpleMap<K, V> implements Map<K, V>{
     private int hashCode(Object key) {
         int h = key.hashCode();
         return h ^ (h >>> 16);
+    }
+
+    private int indexFor(Object key) {
+        int h = hashCode(key);
+        return h % this.length();
     }
 
     @Override
