@@ -16,6 +16,10 @@ public class SimpleMap<K, V> implements Map<K, V> {
         this.table = new Node[DEFAULT_CAPACITY];
     }
 
+    public SimpleMap(int capacity) {
+        this.table = new Node[capacity];
+    }
+
     @Override
     public V put(K key, V value) {
         int index = indexFor(key);
