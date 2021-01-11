@@ -88,6 +88,11 @@ public class SimpleMap<K, V> implements Map<K, V> {
         return node.getValue();
     }
 
+    @Override
+    public boolean containsKey(Object key) {
+        return get(key) != null;
+    }
+
     private int hashCode(Object key) {
         int h = key.hashCode();
         return h ^ (h >>> 16);

@@ -46,4 +46,16 @@ public class SimpleMapTest {
         Assert.assertEquals("x", x);
         Assert.assertEquals(1, map.size());
     }
+
+    @Test
+    public void test3() {
+        Map<String, String> map = new SimpleMap<>();
+        map.put("a", "a");
+        Assert.assertEquals(1, map.size());
+        Assert.assertEquals(true, map.containsKey("a"));
+
+        map.remove("a");
+        Assert.assertEquals(false, map.containsKey("a"));
+        Assert.assertEquals(0, map.size());
+    }
 }

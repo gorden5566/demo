@@ -32,6 +32,14 @@ public interface Map<K, V> {
     V remove(Object key);
 
     /**
+     * test if contains
+     *
+     * @param key
+     * @return
+     */
+    boolean containsKey(Object key);
+
+    /**
      * get map size
      *
      * @return
