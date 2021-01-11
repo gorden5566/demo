@@ -56,6 +56,38 @@ public class SimpleMap<K, V> implements Map<K, V> {
         return null;
     }
 
+    @Override
+    public V remove(Object key) {
+        int index = indexFor(key);
+        if (table[index] == null) {
+            return null;
+        }
+
+        Node<K, V> pre = table[index];
+        Node<K, V> node = table[index];
+        while (node != null && !key.equals(node.getKey())) {
+            if (key.equals(node.getKey())) {
+                break;
+            }
+            pre = node;
+            node = node.getNext();
+        }
+
+        // not found
+        if (node == null) {
+            return null;
+        }
+
+        if (pre == node) {
+            table[index] = node.getNext();
+        } else {
+            pre.setNext(node.getNext());
+        }
+        this.size--;
+
+        return node.getValue();
+    }
+
     private int hashCode(Object key) {
         int h = key.hashCode();
         return h ^ (h >>> 16);

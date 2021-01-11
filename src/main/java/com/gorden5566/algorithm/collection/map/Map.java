@@ -24,6 +24,14 @@ public interface Map<K, V> {
     V get(Object key);
 
     /**
+     * remove a key
+     *
+     * @param key
+     * @return
+     */
+    V remove(Object key);
+
+    /**
      * get map size
      *
      * @return
