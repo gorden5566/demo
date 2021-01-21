@@ -56,11 +56,7 @@ class Solution {
             break;
         }
 
-        if (changed) {
-            return convert(arr);
-        }
-
-        return num;
+        return changed ? convert(arr) : num;
     }
 
         private int digits(int num) {
