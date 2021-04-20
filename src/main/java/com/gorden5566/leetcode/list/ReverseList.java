@@ -15,55 +15,33 @@ package com.gorden5566.leetcode.list;
  */
 public class ReverseList {
     public ListNode reverseList(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-
-        // 只有head节点
-        if (head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
 
-        // 还有后续节点
-        ListNode tail = head.next;
-        ListNode reverseHead = reverseList(tail);
+        ListNode newHead = reverseList(head.next);
 
-        tail.next = head;
+        head.next.next = head;
         head.next = null;
 
-        return reverseHead;
+        return newHead;
     }
 
     public ListNode reverseList1(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-
-        if (head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
-
-        // 两个指针用于反转
         ListNode pre = head.next;
         ListNode p = head;
 
-        // head.next
-        head.next = null;
-
-        // 双指针后移，依次反转
         while (pre != null) {
-            // 保存pre节点指针
-            ListNode temp = pre;
-
-            // pre往后移
+            ListNode current = pre;
             pre = pre.next;
 
-            // 修改指针指向方向
-            temp.next = p;
-
-            // p跟过来
-            p = temp;
+            current.next = p;
+            p = current;
         }
+        head.next = null;
 
         return p;
     }
