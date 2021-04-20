@@ -30,43 +30,30 @@ import java.util.Set;
  */
 public class HasCycle {
     public boolean hasCycle(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return false;
         }
-
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (slow != null && fast != null) {
-            // 快指针赶上了慢指针
-            if (slow == fast) {
-                return true;
-            }
-
-            slow = slow.next;
-            fast = fast.next;
-
-            // 不为null就继续快点走
-            if (fast != null) {
-                fast = fast.next;
-            }
+        ListNode pre = head;
+        ListNode p = head;
+        while (pre != null && pre != p) {
+            pre = pre.next.next;
+            p = p.next;
         }
-
-        return false;
+        return pre == p;
     }
 
     public boolean hasCycle1(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return false;
         }
 
-        Set<ListNode> nodes = new HashSet<>();
         ListNode p = head;
+        Set<ListNode> nodes = new HashSet<>();
         while (p != null && !nodes.contains(p)) {
             nodes.add(p);
             p = p.next;
         }
 
-        // 存在环时，p不会为null
         return p != null;
     }
 }
