@@ -14,109 +14,50 @@ package com.gorden5566.leetcode.list;
  */
 public class MergeTwoLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
-
         if (l1 == l2) {
             return l1;
         }
-
-        ListNode head = null;
-
-        // 递归合并节点
-        if (l1.val < l2.val) {
-            head = l1;
-            head.next = mergeTwoLists(l1.next, l2);
-        } else {
-            head = l2;
-            head.next = mergeTwoLists(l1, l2.next);
+        if (l1 == null || l2 == null) {
+            return l1 == null ? l2 : l1;
         }
-
-        return head;
+        if (l1.val < l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
     }
 
     public ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
         if (l1 == l2) {
             return l1;
         }
+        if (l1 == null || l2 == null) {
+            return l1 == null ? l2 : l1;
+        }
 
-        // 找头节点
-        ListNode head = null;
-        if (l1.val < l2.val) {
-            head = l1;
-            l1 = l1.next;
+        ListNode sentinel = new ListNode(-1);
+        ListNode p = sentinel;
+        ListNode p1 = l1;
+        ListNode p2 = l2;
+        while (p1 != null && p2 != null) {
+            if (p1.val < p2.val) {
+                p.next = p1;
+                p = p1;
+                p1 = p1.next;
+            } else {
+                p.next = p2;
+                p = p2;
+                p2 = p2.next;
+            }
+        }
+
+        if (p1 != null) {
+            p.next = p1;
         } else {
-            head = l2;
-            l2 = l2.next;
+            p.next = p2;
         }
-
-        ListNode p = head;
-        while (l1 != null && l2 != null) {
-            // 找到下一个节点
-            if (l1.val < l2.val) {
-                p.next = l1;
-                l1 = l1.next;
-            } else {
-                p.next = l2;
-                l2 = l2.next;
-            }
-            p = p.next;
-        }
-
-        // 连接剩余节点
-        if (l1 != null) {
-            p.next = l1;
-        } else if (l2 != null) {
-            p.next = l2;
-        }
-
-        return head;
-    }
-
-    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
-        if (l1 == l2) {
-            return l1;
-        }
-
-        // 哨兵
-        ListNode preHead = new ListNode(-1);
-
-        ListNode p = preHead;
-        while (l1 != null && l2 != null) {
-            // 查找下一个节点
-            if (l1.val < l2.val) {
-                p.next = l1;
-                l1 = l1.next;
-            } else {
-                p.next = l2;
-                l2 = l2.next;
-            }
-            p = p.next;
-        }
-
-        // 连接剩余节点
-        if (l1 != null) {
-            p.next = l1;
-        } else if (l2 != null) {
-            p.next = l2;
-        }
-
-        return preHead.next;
+        return sentinel.next;
     }
 }

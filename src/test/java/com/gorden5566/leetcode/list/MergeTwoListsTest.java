@@ -17,7 +17,7 @@ public class MergeTwoListsTest {
         ListNode l1 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 2, 4)).build();
         ListUtils.printList(l1);
 
-        ListNode l2 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 3, 4)).build();
+        ListNode l2 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 3, 4, 5, 6)).build();
         ListUtils.printList(l2);
 
         ListNode lists = new MergeTwoLists().mergeTwoLists(l1, l2);
@@ -38,7 +38,7 @@ public class MergeTwoListsTest {
         ListNode l1 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 2, 4)).build();
         ListUtils.printList(l1);
 
-        ListNode l2 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 3, 4)).build();
+        ListNode l2 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 3, 4, 5, 6)).build();
         ListUtils.printList(l2);
 
         ListNode lists = new MergeTwoLists().mergeTwoLists1(l1, l2);
@@ -51,27 +51,6 @@ public class MergeTwoListsTest {
         ListUtils.printList(l1);
 
         ListNode lists = new MergeTwoLists().mergeTwoLists1(l1, l1);
-        ListUtils.printList(lists);
-    }
-
-    @Test
-    public void mergeTwoLists21() {
-        ListNode l1 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 2, 4)).build();
-        ListUtils.printList(l1);
-
-        ListNode l2 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 3, 4)).build();
-        ListUtils.printList(l2);
-
-        ListNode lists = new MergeTwoLists().mergeTwoLists2(l1, l2);
-        ListUtils.printList(lists);
-    }
-
-    @Test
-    public void mergeTwoLists22() {
-        ListNode l1 = ListNodeBuilder.builder().addNodes(Arrays.asList(1, 2, 4)).build();
-        ListUtils.printList(l1);
-
-        ListNode lists = new MergeTwoLists().mergeTwoLists2(l1, l1);
         ListUtils.printList(lists);
     }
 }
