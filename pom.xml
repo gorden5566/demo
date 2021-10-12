@@ -23,6 +23,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>5.9.0</version>
+        </dependency>
+
         <!-- junit单元测试 -->
         <dependency>
             <groupId>junit</groupId>
